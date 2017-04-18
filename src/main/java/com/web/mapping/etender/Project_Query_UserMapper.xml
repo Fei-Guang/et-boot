@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.etender.Project_Query_UserMapper" >
+  <resultMap id="BaseResultMap" type="com.web.model.etender.Project_Query_User" >
+    <id column="queryProjectID" property="queryprojectid" jdbcType="INTEGER" />
+    <result column="userID" property="userid" jdbcType="VARCHAR" />
+    <result column="isAcceptor" property="isacceptor" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    queryProjectID, userID, isAcceptor
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_project_query_user
+    where queryProjectID = #{queryprojectid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_project_query_user
+    where queryProjectID = #{queryprojectid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.web.model.etender.Project_Query_User" >
+    insert into t_project_query_user (queryProjectID, userID, isAcceptor
+      )
+    values (#{queryprojectid,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, #{isacceptor,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.web.model.etender.Project_Query_User" >
+    insert into t_project_query_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="queryprojectid != null" >
+        queryProjectID,
+      </if>
+      <if test="userid != null" >
+        userID,
+      </if>
+      <if test="isacceptor != null" >
+        isAcceptor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="queryprojectid != null" >
+        #{queryprojectid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="isacceptor != null" >
+        #{isacceptor,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.web.model.etender.Project_Query_User" >
+    update t_project_query_user
+    <set >
+      <if test="userid != null" >
+        userID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="isacceptor != null" >
+        isAcceptor = #{isacceptor,jdbcType=BIT},
+      </if>
+    </set>
+    where queryProjectID = #{queryprojectid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.web.model.etender.Project_Query_User" >
+    update t_project_query_user
+    set userID = #{userid,jdbcType=VARCHAR},
+      isAcceptor = #{isacceptor,jdbcType=BIT}
+    where queryProjectID = #{queryprojectid,jdbcType=INTEGER}
+  </update>
+</mapper>

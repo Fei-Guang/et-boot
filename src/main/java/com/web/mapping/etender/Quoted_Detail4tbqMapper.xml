@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.etender.Quoted_Detail4tbqMapper">
+	<resultMap id="BaseResultMap" type="com.web.model.etender.Quoted_Detail4tbq">
+		<id column="detailID" property="detailid" jdbcType="INTEGER" />
+		<result column="billItemID" property="billitemid" jdbcType="INTEGER" />
+		<result column="userID" property="userid" jdbcType="VARCHAR" />
+		<result column="netRate" property="netrate" jdbcType="VARCHAR" />
+		<result column="adjustNetRate" property="adjustnetrate"
+			jdbcType="VARCHAR" />
+		<result column="netAmount" property="netamount" jdbcType="VARCHAR" />
+		<result column="adjustNetAmount" property="adjustnetamount"
+			jdbcType="VARCHAR" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		detailID, billItemID, userID, netRate, adjustNetRate,
+		netAmount,
+		adjustNetAmount,
+		remark
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from t_quoted_detail4tbq
+		where detailID = #{detailid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		t_quoted_detail4tbq
+		where detailID = #{detailid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.web.model.etender.Quoted_Detail4tbq">
+		insert into
+		t_quoted_detail4tbq (detailID, billItemID, userID,
+		netRate,
+		adjustNetRate, netAmount,
+		adjustNetAmount, remark)
+		values
+		(#{detailid,jdbcType=INTEGER}, #{billitemid,jdbcType=INTEGER},
+		#{userid,jdbcType=VARCHAR},
+		#{netrate,jdbcType=VARCHAR},
+		#{adjustnetrate,jdbcType=VARCHAR}, #{netamount,jdbcType=VARCHAR},
+		#{adjustnetamount,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
+	</insert>
+	<!-- 使用useGeneratedKeys/KeyProperty来实现插入数据的时候新生成主键的返回。 -->
+	<insert id="insertSelective" useGeneratedKeys="true"
+		keyProperty="detailid" parameterType="com.web.model.etender.Quoted_Detail4tbq">
+		insert into t_quoted_detail4tbq
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="detailid != null">
+				detailID,
+			</if>
+			<if test="billitemid != null">
+				billItemID,
+			</if>
+			<if test="userid != null">
+				userID,
+			</if>
+			<if test="netrate != null">
+				netRate,
+			</if>
+			<if test="adjustnetrate != null">
+				adjustNetRate,
+			</if>
+			<if test="netamount != null">
+				netAmount,
+			</if>
+			<if test="adjustnetamount != null">
+				adjustNetAmount,
+			</if>
+			<if test="remark != null">
+				remark,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="detailid != null">
+				#{detailid,jdbcType=INTEGER},
+			</if>
+			<if test="billitemid != null">
+				#{billitemid,jdbcType=INTEGER},
+			</if>
+			<if test="userid != null">
+				#{userid,jdbcType=VARCHAR},
+			</if>
+			<if test="netrate != null">
+				#{netrate,jdbcType=VARCHAR},
+			</if>
+			<if test="adjustnetrate != null">
+				#{adjustnetrate,jdbcType=VARCHAR},
+			</if>
+			<if test="netamount != null">
+				#{netamount,jdbcType=VARCHAR},
+			</if>
+			<if test="adjustnetamount != null">
+				#{adjustnetamount,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.web.model.etender.Quoted_Detail4tbq">
+		update t_quoted_detail4tbq
+		<set>
+			<if test="billitemid != null">
+				billItemID = #{billitemid,jdbcType=INTEGER},
+			</if>
+			<if test="userid != null">
+				userID = #{userid,jdbcType=VARCHAR},
+			</if>
+			<if test="netrate != null">
+				netRate = #{netrate,jdbcType=VARCHAR},
+			</if>
+			<if test="adjustnetrate != null">
+				adjustNetRate = #{adjustnetrate,jdbcType=VARCHAR},
+			</if>
+			<if test="netamount != null">
+				netAmount = #{netamount,jdbcType=VARCHAR},
+			</if>
+			<if test="adjustnetamount != null">
+				adjustNetAmount = #{adjustnetamount,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				remark = #{remark,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where detailID = #{detailid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.web.model.etender.Quoted_Detail4tbq">
+		update
+		t_quoted_detail4tbq
+		set billItemID = #{billitemid,jdbcType=INTEGER},
+		userID = #{userid,jdbcType=VARCHAR},
+		netRate =
+		#{netrate,jdbcType=VARCHAR},
+		adjustNetRate =
+		#{adjustnetrate,jdbcType=VARCHAR},
+		netAmount =
+		#{netamount,jdbcType=VARCHAR},
+		adjustNetAmount =
+		#{adjustnetamount,jdbcType=VARCHAR},
+		remark =
+		#{remark,jdbcType=VARCHAR}
+		where detailID =
+		#{detailid,jdbcType=INTEGER}
+	</update>
+	<select id="selectBillitemQuoteDetail" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_quoted_detail4tbq where billItemID =
+		#{billitemid,jdbcType=INTEGER} and userID = #{userid,jdbcType=VARCHAR}
+	</select>
+	<select id="loadQuoteDetail" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_quoted_detail4tbq where billItemID =
+		#{billitemid,jdbcType=INTEGER}
+	</select>
+	<select id="getQuoteBillitemCount" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+		select count(*) from t_quoted_detail4tbq
+		<where>
+			<if test="_parameter.containsKey('userID')">
+				userID = #{userID}
+			</if>
+			<if test="_parameter.containsKey('billItemIDs')">
+				and billItemID in
+				<choose>
+					<when test="billItemIDs != null and billItemIDs.size() > 0">
+						<foreach item="item" index="index" collection="billItemIDs"
+							open="(" separator="," close=")">
+							#{item}
+						</foreach>
+					</when>
+					<otherwise>
+						(-1)
+					</otherwise>
+				</choose>
+			</if>
+		</where>
+	</select>
+</mapper>

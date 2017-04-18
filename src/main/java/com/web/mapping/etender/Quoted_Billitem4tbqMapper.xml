@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.etender.Quoted_Billitem4tbqMapper">
+	<resultMap id="BaseResultMap" type="com.web.model.etender.Quoted_Billitem4tbq">
+		<id column="billItemID" property="billitemid" jdbcType="INTEGER" />
+		<result column="elementID" property="elementid" jdbcType="INTEGER" />
+		<result column="tbqBillItemID" property="tbqbillitemid"
+			jdbcType="INTEGER" />
+		<result column="tbqPBillItemID" property="tbqpbillitemid"
+			jdbcType="INTEGER" />
+		<result column="trade" property="trade" jdbcType="VARCHAR" />
+		<result column="unit" property="unit" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="TINYINT" />
+		<result column="netRate" property="netrate" jdbcType="VARCHAR" />
+		<result column="adjustNetRate" property="adjustnetrate"
+			jdbcType="VARCHAR" />
+		<result column="netAmount" property="netamount" jdbcType="VARCHAR" />
+		<result column="adjustNetAmount" property="adjustnetamount"
+			jdbcType="VARCHAR" />
+		<result column="isChange" property="ischange" jdbcType="BIT" />
+		<result column="qty" property="qty" jdbcType="VARCHAR" />
+		<result column="priceType" property="pricetype" jdbcType="TINYINT" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="ResultMapWithBLOBs" type="com.web.model.etender.Quoted_Billitem4tbq"
+		extends="BaseResultMap">
+		<result column="description" property="description" jdbcType="LONGVARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		billItemID, elementID, tbqBillItemID, tbqPBillItemID, trade, unit, type, netRate,
+		adjustNetRate, netAmount, adjustNetAmount, isChange, qty, priceType,
+		remark
+	</sql>
+	<sql id="Blob_Column_List">
+		description
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from t_quoted_billitem4tbq
+		where billItemID = #{billitemid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from t_quoted_billitem4tbq
+		where billItemID = #{billitemid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.web.model.etender.Quoted_Billitem4tbq">
+		insert into t_quoted_billitem4tbq (billItemID, elementID,
+		tbqBillItemID,
+		tbqPBillItemID, trade, unit,
+		type, netRate, adjustNetRate,
+		netAmount, adjustNetAmount, isChange,
+		qty, priceType, remark,
+		description)
+		values (#{billitemid,jdbcType=INTEGER}, #{elementid,jdbcType=INTEGER},
+		#{tbqbillitemid,jdbcType=INTEGER},
+		#{tbqpbillitemid,jdbcType=INTEGER}, #{trade,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR},
+		#{type,jdbcType=TINYINT}, #{netrate,jdbcType=VARCHAR},
+		#{adjustnetrate,jdbcType=VARCHAR},
+		#{netamount,jdbcType=VARCHAR}, #{adjustnetamount,jdbcType=VARCHAR}, #{ischange,jdbcType=BIT},
+		#{qty,jdbcType=VARCHAR}, #{pricetype,jdbcType=TINYINT},
+		#{remark,jdbcType=VARCHAR},
+		#{description,jdbcType=LONGVARCHAR})
+	</insert>
+	<!-- 使用useGeneratedKeys/KeyProperty来实现插入数据的时候新生成主键的返回。 -->
+	<insert id="insertSelective" useGeneratedKeys="true"
+		keyProperty="billitemid" parameterType="com.web.model.etender.Quoted_Billitem4tbq">
+		insert into t_quoted_billitem4tbq
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="billitemid != null">
+				billItemID,
+			</if>
+			<if test="elementid != null">
+				elementID,
+			</if>
+			<if test="tbqbillitemid != null">
+				tbqBillItemID,
+			</if>
+			<if test="tbqpbillitemid != null">
+				tbqPBillItemID,
+			</if>
+			<if test="trade != null">
+				trade,
+			</if>
+			<if test="unit != null">
+				unit,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="netrate != null">
+				netRate,
+			</if>
+			<if test="adjustnetrate != null">
+				adjustNetRate,
+			</if>
+			<if test="netamount != null">
+				netAmount,
+			</if>
+			<if test="adjustnetamount != null">
+				adjustNetAmount,
+			</if>
+			<if test="ischange != null">
+				isChange,
+			</if>
+			<if test="qty != null">
+				qty,
+			</if>
+			<if test="pricetype != null">
+				priceType,
+			</if>
+			<if test="remark != null">
+				remark,
+			</if>
+			<if test="description != null">
+				description,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="billitemid != null">
+				#{billitemid,jdbcType=INTEGER},
+			</if>
+			<if test="elementid != null">
+				#{elementid,jdbcType=INTEGER},
+			</if>
+			<if test="tbqbillitemid != null">
+				#{tbqbillitemid,jdbcType=INTEGER},
+			</if>
+			<if test="tbqpbillitemid != null">
+				#{tbqpbillitemid,jdbcType=INTEGER},
+			</if>
+			<if test="trade != null">
+				#{trade,jdbcType=VARCHAR},
+			</if>
+			<if test="unit != null">
+				#{unit,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=TINYINT},
+			</if>
+			<if test="netrate != null">
+				#{netrate,jdbcType=VARCHAR},
+			</if>
+			<if test="adjustnetrate != null">
+				#{adjustnetrate,jdbcType=VARCHAR},
+			</if>
+			<if test="netamount != null">
+				#{netamount,jdbcType=VARCHAR},
+			</if>
+			<if test="adjustnetamount != null">
+				#{adjustnetamount,jdbcType=VARCHAR},
+			</if>
+			<if test="ischange != null">
+				#{ischange,jdbcType=BIT},
+			</if>
+			<if test="qty != null">
+				#{qty,jdbcType=VARCHAR},
+			</if>
+			<if test="pricetype != null">
+				#{pricetype,jdbcType=TINYINT},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				#{description,jdbcType=LONGVARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.web.model.etender.Quoted_Billitem4tbq">
+		update t_quoted_billitem4tbq
+		<set>
+			<if test="elementid != null">
+				elementID = #{elementid,jdbcType=INTEGER},
+			</if>
+			<if test="tbqbillitemid != null">
+				tbqBillItemID = #{tbqbillitemid,jdbcType=INTEGER},
+			</if>
+			<if test="tbqpbillitemid != null">
+				tbqPBillItemID = #{tbqpbillitemid,jdbcType=INTEGER},
+			</if>
+			<if test="trade != null">
+				trade = #{trade,jdbcType=VARCHAR},
+			</if>
+			<if test="unit != null">
+				unit = #{unit,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				type = #{type,jdbcType=TINYINT},
+			</if>
+			<if test="netrate != null">
+				netRate = #{netrate,jdbcType=VARCHAR},
+			</if>
+			<if test="adjustnetrate != null">
+				adjustNetRate = #{adjustnetrate,jdbcType=VARCHAR},
+			</if>
+			<if test="netamount != null">
+				netAmount = #{netamount,jdbcType=VARCHAR},
+			</if>
+			<if test="adjustnetamount != null">
+				adjustNetAmount = #{adjustnetamount,jdbcType=VARCHAR},
+			</if>
+			<if test="ischange != null">
+				isChange = #{ischange,jdbcType=BIT},
+			</if>
+			<if test="qty != null">
+				qty = #{qty,jdbcType=VARCHAR},
+			</if>
+			<if test="pricetype != null">
+				priceType = #{pricetype,jdbcType=TINYINT},
+			</if>
+			<if test="remark != null">
+				remark = #{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				description = #{description,jdbcType=LONGVARCHAR},
+			</if>
+		</set>
+		where billItemID = #{billitemid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKeyWithBLOBs" parameterType="com.web.model.etender.Quoted_Billitem4tbq">
+		update t_quoted_billitem4tbq
+		set elementID = #{elementid,jdbcType=INTEGER},
+		tbqBillItemID = #{tbqbillitemid,jdbcType=INTEGER},
+		tbqPBillItemID = #{tbqpbillitemid,jdbcType=INTEGER},
+		trade = #{trade,jdbcType=VARCHAR},
+		unit = #{unit,jdbcType=VARCHAR},
+		type = #{type,jdbcType=TINYINT},
+		netRate = #{netrate,jdbcType=VARCHAR},
+		adjustNetRate = #{adjustnetrate,jdbcType=VARCHAR},
+		netAmount = #{netamount,jdbcType=VARCHAR},
+		adjustNetAmount = #{adjustnetamount,jdbcType=VARCHAR},
+		isChange = #{ischange,jdbcType=BIT},
+		qty = #{qty,jdbcType=VARCHAR},
+		priceType = #{pricetype,jdbcType=TINYINT},
+		remark = #{remark,jdbcType=VARCHAR},
+		description = #{description,jdbcType=LONGVARCHAR}
+		where billItemID = #{billitemid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.web.model.etender.Quoted_Billitem4tbq">
+		update t_quoted_billitem4tbq
+		set elementID = #{elementid,jdbcType=INTEGER},
+		tbqBillItemID = #{tbqbillitemid,jdbcType=INTEGER},
+		tbqPBillItemID = #{tbqpbillitemid,jdbcType=INTEGER},
+		trade = #{trade,jdbcType=VARCHAR},
+		unit = #{unit,jdbcType=VARCHAR},
+		type = #{type,jdbcType=TINYINT},
+		netRate = #{netrate,jdbcType=VARCHAR},
+		adjustNetRate = #{adjustnetrate,jdbcType=VARCHAR},
+		netAmount = #{netamount,jdbcType=VARCHAR},
+		adjustNetAmount = #{adjustnetamount,jdbcType=VARCHAR},
+		isChange = #{ischange,jdbcType=BIT},
+		qty = #{qty,jdbcType=VARCHAR},
+		priceType = #{pricetype,jdbcType=TINYINT},
+		remark = #{remark,jdbcType=VARCHAR}
+		where billItemID = #{billitemid,jdbcType=INTEGER}
+	</update>
+	<select id="loadBillItem" resultMap="ResultMapWithBLOBs">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from t_quoted_billitem4tbq where elementID =
+		#{elementid,jdbcType=INTEGER}
+		order by billItemID
+	</select>
+	<select id="loadBillItemIDs" resultType="java.lang.Integer">
+		select
+		billItemID
+		from t_quoted_billitem4tbq where
+		elementID in
+		<choose>
+			<when test="list != null and list.size() > 0">
+				<foreach item="item" index="index" collection="list" open="("
+					separator="," close=")">
+					#{item}
+				</foreach>
+			</when>
+			<otherwise>
+				(-1)
+			</otherwise>
+		</choose>
+		order by billItemID
+	</select>
+	<update id="updateAdjustnetrate">
+		update
+		t_quoted_billitem4tbq
+		set
+		adjustNetRate =
+		#{adjustnetrate,jdbcType=VARCHAR}
+		where billItemID =
+		#{billitemid,jdbcType=INTEGER}
+	</update>
+	<update id="updateAdjustnetamount">
+		update
+		t_quoted_billitem4tbq
+		set
+		adjustNetAmount =
+		#{adjustnetamount,jdbcType=VARCHAR}
+		where billItemID =
+		#{billitemid,jdbcType=INTEGER}
+	</update>
+	<update id="updateRemark">
+		update
+		t_quoted_billitem4tbq
+		set
+		remark =
+		#{remark,jdbcType=VARCHAR}
+		where billItemID =
+		#{billitemid,jdbcType=INTEGER}
+	</update>
+	<update id="updateChangeStatus">
+		update
+		t_quoted_billitem4tbq
+		set
+		isChange = #{ischange,jdbcType=BIT}
+		where billItemID =
+		#{billitemid,jdbcType=INTEGER}
+	</update>
+</mapper>

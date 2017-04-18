@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.etender.Quoted_Detail4excelMapper" >
+  <resultMap id="BaseResultMap" type="com.web.model.etender.Quoted_Detail4excel" >
+    <id column="detailID" property="detailid" jdbcType="INTEGER" />
+    <result column="sheetID" property="sheetid" jdbcType="INTEGER" />
+    <result column="userID" property="userid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    detailID, sheetID, userID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_quoted_detail4excel
+    where detailID = #{detailid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_quoted_detail4excel
+    where detailID = #{detailid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.web.model.etender.Quoted_Detail4excel" >
+    insert into t_quoted_detail4excel (detailID, sheetID, userID
+      )
+    values (#{detailid,jdbcType=INTEGER}, #{sheetid,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.web.model.etender.Quoted_Detail4excel" >
+    insert into t_quoted_detail4excel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="detailid != null" >
+        detailID,
+      </if>
+      <if test="sheetid != null" >
+        sheetID,
+      </if>
+      <if test="userid != null" >
+        userID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="detailid != null" >
+        #{detailid,jdbcType=INTEGER},
+      </if>
+      <if test="sheetid != null" >
+        #{sheetid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.web.model.etender.Quoted_Detail4excel" >
+    update t_quoted_detail4excel
+    <set >
+      <if test="sheetid != null" >
+        sheetID = #{sheetid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userID = #{userid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where detailID = #{detailid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.web.model.etender.Quoted_Detail4excel" >
+    update t_quoted_detail4excel
+    set sheetID = #{sheetid,jdbcType=INTEGER},
+      userID = #{userid,jdbcType=VARCHAR}
+    where detailID = #{detailid,jdbcType=INTEGER}
+  </update>
+</mapper>

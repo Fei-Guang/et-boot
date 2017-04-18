@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.etender.Quoted_Discount4tbqMapper">
+	<resultMap id="BaseResultMap" type="com.web.model.etender.Quoted_Discount4tbq">
+		<id column="discountID" property="discountid" jdbcType="INTEGER" />
+		<result column="userID" property="userid" jdbcType="VARCHAR" />
+		<result column="subProjectID" property="subprojectid" jdbcType="INTEGER" />
+		<result column="discount" property="discount" jdbcType="VARCHAR" />
+		<result column="discountPercent" property="discountpercent"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		discountID, userID, subProjectID, discount, discountPercent
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from t_quoted_discount4tbq
+		where discountID =
+		#{discountid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		t_quoted_discount4tbq
+		where discountID = #{discountid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.web.model.etender.Quoted_Discount4tbq">
+		insert into
+		t_quoted_discount4tbq (discountID, userID, subProjectID,
+		discount,
+		discountPercent)
+		values (#{discountid,jdbcType=INTEGER},
+		#{userid,jdbcType=VARCHAR},
+		#{subprojectid,jdbcType=INTEGER},
+		#{discount,jdbcType=VARCHAR}, #{discountpercent,jdbcType=VARCHAR})
+	</insert>
+	<!-- 使用useGeneratedKeys/KeyProperty来实现插入数据的时候新生成主键的返回。 -->
+	<insert id="insertSelective" useGeneratedKeys="true"
+		keyProperty="discountid" parameterType="com.web.model.etender.Quoted_Discount4tbq">
+		insert into t_quoted_discount4tbq
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="discountid != null">
+				discountID,
+			</if>
+			<if test="userid != null">
+				userID,
+			</if>
+			<if test="subprojectid != null">
+				subProjectID,
+			</if>
+			<if test="discount != null">
+				discount,
+			</if>
+			<if test="discountpercent != null">
+				discountPercent,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="discountid != null">
+				#{discountid,jdbcType=INTEGER},
+			</if>
+			<if test="userid != null">
+				#{userid,jdbcType=VARCHAR},
+			</if>
+			<if test="subprojectid != null">
+				#{subprojectid,jdbcType=INTEGER},
+			</if>
+			<if test="discount != null">
+				#{discount,jdbcType=VARCHAR},
+			</if>
+			<if test="discountpercent != null">
+				#{discountpercent,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.web.model.etender.Quoted_Discount4tbq">
+		update t_quoted_discount4tbq
+		<set>
+			<if test="userid != null">
+				userID = #{userid,jdbcType=VARCHAR},
+			</if>
+			<if test="subprojectid != null">
+				subProjectID = #{subprojectid,jdbcType=INTEGER},
+			</if>
+			<if test="discount != null">
+				discount = #{discount,jdbcType=VARCHAR},
+			</if>
+			<if test="discountpercent != null">
+				discountPercent = #{discountpercent,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where discountID = #{discountid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.web.model.etender.Quoted_Discount4tbq">
+		update
+		t_quoted_discount4tbq
+		set userID = #{userid,jdbcType=VARCHAR},
+		subProjectID = #{subprojectid,jdbcType=INTEGER},
+		discount =
+		#{discount,jdbcType=VARCHAR},
+		discountPercent =
+		#{discountpercent,jdbcType=VARCHAR}
+		where discountID =
+		#{discountid,jdbcType=INTEGER}
+	</update>
+	<select id="selectBillitemQuoteDiscount" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_quoted_discount4tbq where subProjectID =
+		#{subprojectid,jdbcType=INTEGER} and userID =
+		#{userid,jdbcType=VARCHAR}
+	</select>
+</mapper>

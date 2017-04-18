@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.etender.Quoted_Pageitem4pdfMapper" >
+  <resultMap id="BaseResultMap" type="com.web.model.etender.Quoted_Pageitem4pdf" >
+    <id column="pageID" property="pageid" jdbcType="INTEGER" />
+    <result column="elementID" property="elementid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pageID, elementID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_quoted_pageitem4pdf
+    where pageID = #{pageid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_quoted_pageitem4pdf
+    where pageID = #{pageid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.web.model.etender.Quoted_Pageitem4pdf" >
+    insert into t_quoted_pageitem4pdf (pageID, elementID)
+    values (#{pageid,jdbcType=INTEGER}, #{elementid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.web.model.etender.Quoted_Pageitem4pdf" >
+    insert into t_quoted_pageitem4pdf
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pageid != null" >
+        pageID,
+      </if>
+      <if test="elementid != null" >
+        elementID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pageid != null" >
+        #{pageid,jdbcType=INTEGER},
+      </if>
+      <if test="elementid != null" >
+        #{elementid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.web.model.etender.Quoted_Pageitem4pdf" >
+    update t_quoted_pageitem4pdf
+    <set >
+      <if test="elementid != null" >
+        elementID = #{elementid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where pageID = #{pageid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.web.model.etender.Quoted_Pageitem4pdf" >
+    update t_quoted_pageitem4pdf
+    set elementID = #{elementid,jdbcType=INTEGER}
+    where pageID = #{pageid,jdbcType=INTEGER}
+  </update>
+</mapper>

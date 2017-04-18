@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.etender.Quoted_Adopt4tbqMapper">
+	<resultMap id="BaseResultMap" type="com.web.model.etender.Quoted_Adopt4tbq">
+		<id column="billItemID" property="billitemid" jdbcType="INTEGER" />
+		<result column="adoptNetRate" property="adoptnetrate" jdbcType="VARCHAR" />
+		<result column="adoptNetAmount" property="adoptnetamount"
+			jdbcType="VARCHAR" />
+		<result column="adoptRemark" property="adoptremark" jdbcType="VARCHAR" />
+		<result column="userID" property="userid" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		billItemID, adoptNetRate, adoptNetAmount, adoptRemark, userID
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from t_quoted_adopt4tbq
+		where billItemID = #{billitemid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from t_quoted_adopt4tbq
+		where billItemID = #{billitemid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.web.model.etender.Quoted_Adopt4tbq">
+		insert into t_quoted_adopt4tbq (billItemID, adoptNetRate,
+		adoptNetAmount,
+		adoptRemark, userID)
+		values (#{billitemid,jdbcType=INTEGER}, #{adoptnetrate,jdbcType=VARCHAR},
+		#{adoptnetamount,jdbcType=VARCHAR},
+		#{adoptremark,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.web.model.etender.Quoted_Adopt4tbq">
+		insert into t_quoted_adopt4tbq
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="billitemid != null">
+				billItemID,
+			</if>
+			<if test="adoptnetrate != null">
+				adoptNetRate,
+			</if>
+			<if test="adoptnetamount != null">
+				adoptNetAmount,
+			</if>
+			<if test="adoptremark != null">
+				adoptRemark,
+			</if>
+			<if test="userid != null">
+				userID,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="billitemid != null">
+				#{billitemid,jdbcType=INTEGER},
+			</if>
+			<if test="adoptnetrate != null">
+				#{adoptnetrate,jdbcType=VARCHAR},
+			</if>
+			<if test="adoptnetamount != null">
+				#{adoptnetamount,jdbcType=VARCHAR},
+			</if>
+			<if test="adoptremark != null">
+				#{adoptremark,jdbcType=VARCHAR},
+			</if>
+			<if test="userid != null">
+				#{userid,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.web.model.etender.Quoted_Adopt4tbq">
+		update t_quoted_adopt4tbq
+		<set>
+			<if test="adoptnetrate != null">
+				adoptNetRate = #{adoptnetrate,jdbcType=VARCHAR},
+			</if>
+			<if test="adoptnetamount != null">
+				adoptNetAmount = #{adoptnetamount,jdbcType=VARCHAR},
+			</if>
+			<if test="adoptremark != null">
+				adoptRemark = #{adoptremark,jdbcType=VARCHAR},
+			</if>
+			<if test="userid != null">
+				userID = #{userid,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where billItemID = #{billitemid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.web.model.etender.Quoted_Adopt4tbq">
+		update t_quoted_adopt4tbq
+		set adoptNetRate = #{adoptnetrate,jdbcType=VARCHAR},
+		adoptNetAmount = #{adoptnetamount,jdbcType=VARCHAR},
+		adoptRemark = #{adoptremark,jdbcType=VARCHAR},
+		userID = #{userid,jdbcType=VARCHAR}
+		where billItemID = #{billitemid,jdbcType=INTEGER}
+	</update>
+	<update id="updateAdoptnetrate">
+		update
+		t_quoted_adopt4tbq
+		set
+		adoptNetRate =
+		#{adoptnetrate,jdbcType=VARCHAR}
+		where billItemID =
+		#{billitemid,jdbcType=INTEGER}
+	</update>
+	<update id="updateAdoptnetamount">
+		update
+		t_quoted_adopt4tbq
+		set
+		adoptNetAmount =
+		#{adoptnetamount,jdbcType=VARCHAR}
+		where billItemID =
+		#{billitemid,jdbcType=INTEGER}
+	</update>
+	<update id="updateAdoptRemark">
+		update
+		t_quoted_adopt4tbq
+		set
+		adoptRemark =
+		#{adoptremark,jdbcType=VARCHAR}
+		where billItemID =
+		#{billitemid,jdbcType=INTEGER}
+	</update>
+	<select id="loadAdoptItemCount" resultType="java.lang.Integer">
+		select
+		count(*)
+		from t_quoted_adopt4tbq where
+		billItemID in
+		<choose>
+			<when test="list != null and list.size() > 0">
+				<foreach item="item" index="index" collection="list" open="("
+					separator="," close=")">
+					#{item}
+				</foreach>
+			</when>
+			<otherwise>
+				(-1)
+			</otherwise>
+		</choose>
+	</select>
+</mapper>

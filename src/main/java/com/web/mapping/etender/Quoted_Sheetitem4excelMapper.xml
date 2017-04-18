@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.etender.Quoted_Sheetitem4excelMapper" >
+  <resultMap id="BaseResultMap" type="com.web.model.etender.Quoted_Sheetitem4excel" >
+    <id column="sheetID" property="sheetid" jdbcType="INTEGER" />
+    <result column="elementID" property="elementid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sheetID, elementID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_quoted_sheetitem4excel
+    where sheetID = #{sheetid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_quoted_sheetitem4excel
+    where sheetID = #{sheetid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.web.model.etender.Quoted_Sheetitem4excel" >
+    insert into t_quoted_sheetitem4excel (sheetID, elementID)
+    values (#{sheetid,jdbcType=INTEGER}, #{elementid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.web.model.etender.Quoted_Sheetitem4excel" >
+    insert into t_quoted_sheetitem4excel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sheetid != null" >
+        sheetID,
+      </if>
+      <if test="elementid != null" >
+        elementID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sheetid != null" >
+        #{sheetid,jdbcType=INTEGER},
+      </if>
+      <if test="elementid != null" >
+        #{elementid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.web.model.etender.Quoted_Sheetitem4excel" >
+    update t_quoted_sheetitem4excel
+    <set >
+      <if test="elementid != null" >
+        elementID = #{elementid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where sheetID = #{sheetid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.web.model.etender.Quoted_Sheetitem4excel" >
+    update t_quoted_sheetitem4excel
+    set elementID = #{elementid,jdbcType=INTEGER}
+    where sheetID = #{sheetid,jdbcType=INTEGER}
+  </update>
+</mapper>

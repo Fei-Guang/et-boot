@@ -1,0 +1,42 @@
+.tree_table .custom_node, .tree_table .custom_active_node {
+	border: medium none;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	height: 32px;
+	width: 20px;
+}
+
+.tree_table .custom_active_node {
+	cursor: pointer;
+}
+
+.tree_table .custom_leaf {
+	background: url(./leaf.png) no-repeat 5px 0px;
+	width: 20px;
+}
+
+.tree_table .custom_last_leaf {
+	background: url(./last.png) no-repeat 5px 0px;
+	width: 20px;
+}
+
+.tree_table .custom_open, .tree_table .custom_hover_open {
+	background: url(./fold.png) no-repeat left 10px;
+	width: 20px;
+}
+
+.tree_table .custom_shut, .tree_table .custom_hover_shut {
+	background: url(./open.png) no-repeat left center;
+	width: 20px;
+}
+
+.tree_table .custom_last_shut, .tree_table .custom_hover_last_shut {
+	background: url(./open.png) no-repeat left 10px;
+	width: 20px;
+}
+
+.tree_table .custom_last_open, .tree_table .custom_hover_last_open {
+	background: url(./fold.png) no-repeat left 10px;
+	width: 20px;
+}

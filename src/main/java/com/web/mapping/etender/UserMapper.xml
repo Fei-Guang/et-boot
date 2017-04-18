@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.etender.UserMapper">
+	<resultMap id="BaseResultMap" type="com.web.model.etender.User">
+		<id column="userID" property="userid" jdbcType="VARCHAR" />
+		<result column="nickName" property="nickname" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="company" property="company" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="telephone" property="telephone" jdbcType="VARCHAR" />
+		<result column="webSite" property="website" jdbcType="VARCHAR" />
+		<result column="contactInfo" property="contactinfo" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="TINYINT" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="createBy" property="createby" jdbcType="VARCHAR" />
+		<result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="updateBy" property="updateby" jdbcType="VARCHAR" />
+		<result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+		<result column="logicCounter" property="logiccounter" jdbcType="BIGINT" />
+		<result column="logicDelete" property="logicdelete" jdbcType="BIT" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		userID, nickName, password, email, name, company, address,
+		telephone,
+		webSite, contactInfo,
+		status, remark, createBy, createTime,
+		updateBy, updateTime, logicCounter,
+		logicDelete
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from t_user
+		where userID = #{userid,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from t_user
+		where userID = #{userid,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.web.model.etender.User">
+		insert into t_user (userID,
+		nickName, password,
+		email, name, company,
+		address, telephone, webSite,
+		contactInfo, status, remark,
+		createBy, createTime, updateBy,
+		updateTime, logicCounter, logicDelete
+		)
+		values
+		(#{userid,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR},
+		#{name,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR},
+		#{address,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR},
+		#{website,jdbcType=VARCHAR},
+		#{contactinfo,jdbcType=VARCHAR},
+		#{status,jdbcType=TINYINT}, #{remark,jdbcType=VARCHAR},
+		#{createby,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
+		#{updateby,jdbcType=VARCHAR},
+		#{updatetime,jdbcType=TIMESTAMP},
+		#{logiccounter,jdbcType=BIGINT}, #{logicdelete,jdbcType=BIT}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.web.model.etender.User">
+		insert into t_user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userid != null">
+				userID,
+			</if>
+			<if test="nickname != null">
+				nickName,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="company != null">
+				company,
+			</if>
+			<if test="address != null">
+				address,
+			</if>
+			<if test="telephone != null">
+				telephone,
+			</if>
+			<if test="website != null">
+				webSite,
+			</if>
+			<if test="contactinfo != null">
+				contactInfo,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="remark != null">
+				remark,
+			</if>
+			<if test="createby != null">
+				createBy,
+			</if>
+			<if test="createtime != null">
+				createTime,
+			</if>
+			<if test="updateby != null">
+				updateBy,
+			</if>
+			<if test="updatetime != null">
+				updateTime,
+			</if>
+			<if test="logiccounter != null">
+				logicCounter,
+			</if>
+			<if test="logicdelete != null">
+				logicDelete,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userid != null">
+				#{userid,jdbcType=VARCHAR},
+			</if>
+			<if test="nickname != null">
+				#{nickname,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="company != null">
+				#{company,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="telephone != null">
+				#{telephone,jdbcType=VARCHAR},
+			</if>
+			<if test="website != null">
+				#{website,jdbcType=VARCHAR},
+			</if>
+			<if test="contactinfo != null">
+				#{contactinfo,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=TINYINT},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="createby != null">
+				#{createby,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateby != null">
+				#{updateby,jdbcType=VARCHAR},
+			</if>
+			<if test="updatetime != null">
+				#{updatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="logiccounter != null">
+				#{logiccounter,jdbcType=BIGINT},
+			</if>
+			<if test="logicdelete != null">
+				#{logicdelete,jdbcType=BIT},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.web.model.etender.User">
+		update t_user
+		<set>
+			<if test="nickname != null">
+				nickName = #{nickname,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="company != null">
+				company = #{company,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				address = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="telephone != null">
+				telephone = #{telephone,jdbcType=VARCHAR},
+			</if>
+			<if test="website != null">
+				webSite = #{website,jdbcType=VARCHAR},
+			</if>
+			<if test="contactinfo != null">
+				contactInfo = #{contactinfo,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=TINYINT},
+			</if>
+			<if test="remark != null">
+				remark = #{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="createby != null">
+				createBy = #{createby,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				createTime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateby != null">
+				updateBy = #{updateby,jdbcType=VARCHAR},
+			</if>
+			<if test="updatetime != null">
+				updateTime = #{updatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="logiccounter != null">
+				logicCounter = #{logiccounter,jdbcType=BIGINT},
+			</if>
+			<if test="logicdelete != null">
+				logicDelete = #{logicdelete,jdbcType=BIT},
+			</if>
+		</set>
+		where userID = #{userid,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.web.model.etender.User">
+		update t_user
+		set
+		nickName = #{nickname,jdbcType=VARCHAR},
+		password =
+		#{password,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
+		name =
+		#{name,jdbcType=VARCHAR},
+		company = #{company,jdbcType=VARCHAR},
+		address = #{address,jdbcType=VARCHAR},
+		telephone =
+		#{telephone,jdbcType=VARCHAR},
+		webSite = #{website,jdbcType=VARCHAR},
+		contactInfo = #{contactinfo,jdbcType=VARCHAR},
+		status =
+		#{status,jdbcType=TINYINT},
+		remark = #{remark,jdbcType=VARCHAR},
+		createBy = #{createby,jdbcType=VARCHAR},
+		createTime =
+		#{createtime,jdbcType=TIMESTAMP},
+		updateBy =
+		#{updateby,jdbcType=VARCHAR},
+		updateTime =
+		#{updatetime,jdbcType=TIMESTAMP},
+		logicCounter =
+		#{logiccounter,jdbcType=BIGINT},
+		logicDelete =
+		#{logicdelete,jdbcType=BIT}
+		where userID = #{userid,jdbcType=VARCHAR}
+	</update>
+	<select id="loadByEmail4Glodon" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from t_user
+		where email = #{email,jdbcType=VARCHAR} and logicDelete !=1
+	</select>
+	<select id="loadEmails" resultType="java.lang.String"
+		parameterType="java.lang.String">
+		select
+		distinct email
+		from t_user
+	</select>
+</mapper>

@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.etender.Project_QueryMapper">
+	<resultMap id="BaseResultMap" type="com.web.model.etender.Project_Query">
+		<id column="queryProjectID" property="queryprojectid" jdbcType="INTEGER" />
+		<result column="userID" property="userid" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="code" property="code" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="VARCHAR" />
+		<result column="supervisor" property="supervisor" jdbcType="VARCHAR" />
+		<result column="floorArea" property="floorarea" jdbcType="VARCHAR" />
+		<result column="tbqProjectID" property="tbqprojectid" jdbcType="INTEGER" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="totalPrice" property="totalprice" jdbcType="REAL" />
+		<result column="accuracy" property="accuracy" jdbcType="TINYINT" />
+		<result column="status" property="status" jdbcType="TINYINT" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="createBy" property="createby" jdbcType="VARCHAR" />
+		<result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="updateBy" property="updateby" jdbcType="VARCHAR" />
+		<result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+		<result column="logicCounter" property="logiccounter" jdbcType="BIGINT" />
+		<result column="logicDelete" property="logicdelete" jdbcType="BIT" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		queryProjectID, userID, name, code, type, supervisor,
+		floorArea, tbqProjectID,
+		password,
+		totalPrice, accuracy, status, remark,
+		createBy, createTime, updateBy, updateTime,
+		logicCounter, logicDelete
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from t_project_query
+		where queryProjectID =
+		#{queryprojectid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		t_project_query
+		where queryProjectID =
+		#{queryprojectid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.web.model.etender.Project_Query">
+		insert into t_project_query
+		(queryProjectID, userID, name,
+		code, type, supervisor,
+		floorArea,
+		tbqProjectID, password,
+		totalPrice, accuracy, status,
+		remark, createBy,
+		createTime,
+		updateBy, updateTime, logicCounter,
+		logicDelete)
+		values
+		(#{queryprojectid,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR},
+		#{name,jdbcType=VARCHAR},
+		#{code,jdbcType=VARCHAR},
+		#{type,jdbcType=VARCHAR}, #{supervisor,jdbcType=VARCHAR},
+		#{floorarea,jdbcType=VARCHAR}, #{tbqprojectid,jdbcType=INTEGER},
+		#{password,jdbcType=VARCHAR},
+		#{totalprice,jdbcType=REAL},
+		#{accuracy,jdbcType=TINYINT}, #{status,jdbcType=TINYINT},
+		#{remark,jdbcType=VARCHAR}, #{createby,jdbcType=VARCHAR},
+		#{createtime,jdbcType=TIMESTAMP},
+		#{updateby,jdbcType=VARCHAR},
+		#{updatetime,jdbcType=TIMESTAMP}, #{logiccounter,jdbcType=BIGINT},
+		#{logicdelete,jdbcType=BIT})
+	</insert>
+	<!-- 使用useGeneratedKeys/KeyProperty来实现插入数据的时候新生成主键的返回。 -->
+	<insert id="insertSelective" useGeneratedKeys="true"
+		keyProperty="queryprojectid" parameterType="com.web.model.etender.Project_Query">
+		insert into t_project_query
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="queryprojectid != null">
+				queryProjectID,
+			</if>
+			<if test="userid != null">
+				userID,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="code != null">
+				code,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="supervisor != null">
+				supervisor,
+			</if>
+			<if test="floorarea != null">
+				floorArea,
+			</if>
+			<if test="tbqprojectid != null">
+				tbqProjectID,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="totalprice != null">
+				totalPrice,
+			</if>
+			<if test="accuracy != null">
+				accuracy,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="remark != null">
+				remark,
+			</if>
+			<if test="createby != null">
+				createBy,
+			</if>
+			<if test="createtime != null">
+				createTime,
+			</if>
+			<if test="updateby != null">
+				updateBy,
+			</if>
+			<if test="updatetime != null">
+				updateTime,
+			</if>
+			<if test="logiccounter != null">
+				logicCounter,
+			</if>
+			<if test="logicdelete != null">
+				logicDelete,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="queryprojectid != null">
+				#{queryprojectid,jdbcType=INTEGER},
+			</if>
+			<if test="userid != null">
+				#{userid,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null">
+				#{code,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=VARCHAR},
+			</if>
+			<if test="supervisor != null">
+				#{supervisor,jdbcType=VARCHAR},
+			</if>
+			<if test="floorarea != null">
+				#{floorarea,jdbcType=VARCHAR},
+			</if>
+			<if test="tbqprojectid != null">
+				#{tbqprojectid,jdbcType=INTEGER},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="totalprice != null">
+				#{totalprice,jdbcType=REAL},
+			</if>
+			<if test="accuracy != null">
+				#{accuracy,jdbcType=TINYINT},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=TINYINT},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="createby != null">
+				#{createby,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateby != null">
+				#{updateby,jdbcType=VARCHAR},
+			</if>
+			<if test="updatetime != null">
+				#{updatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="logiccounter != null">
+				#{logiccounter,jdbcType=BIGINT},
+			</if>
+			<if test="logicdelete != null">
+				#{logicdelete,jdbcType=BIT},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.web.model.etender.Project_Query">
+		update t_project_query
+		<set>
+			<if test="userid != null">
+				userID = #{userid,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null">
+				code = #{code,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				type = #{type,jdbcType=VARCHAR},
+			</if>
+			<if test="supervisor != null">
+				supervisor = #{supervisor,jdbcType=VARCHAR},
+			</if>
+			<if test="floorarea != null">
+				floorArea = #{floorarea,jdbcType=VARCHAR},
+			</if>
+			<if test="tbqprojectid != null">
+				tbqProjectID = #{tbqprojectid,jdbcType=INTEGER},
+			</if>
+			<if test="password != null">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="totalprice != null">
+				totalPrice = #{totalprice,jdbcType=REAL},
+			</if>
+			<if test="accuracy != null">
+				accuracy = #{accuracy,jdbcType=TINYINT},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=TINYINT},
+			</if>
+			<if test="remark != null">
+				remark = #{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="createby != null">
+				createBy = #{createby,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				createTime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateby != null">
+				updateBy = #{updateby,jdbcType=VARCHAR},
+			</if>
+			<if test="updatetime != null">
+				updateTime = #{updatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="logiccounter != null">
+				logicCounter = #{logiccounter,jdbcType=BIGINT},
+			</if>
+			<if test="logicdelete != null">
+				logicDelete = #{logicdelete,jdbcType=BIT},
+			</if>
+		</set>
+		where queryProjectID = #{queryprojectid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.web.model.etender.Project_Query">
+		update
+		t_project_query
+		set userID = #{userid,jdbcType=VARCHAR},
+		name =
+		#{name,jdbcType=VARCHAR},
+		code = #{code,jdbcType=VARCHAR},
+		type =
+		#{type,jdbcType=VARCHAR},
+		supervisor = #{supervisor,jdbcType=VARCHAR},
+		floorArea = #{floorarea,jdbcType=VARCHAR},
+		tbqProjectID =
+		#{tbqprojectid,jdbcType=INTEGER},
+		password =
+		#{password,jdbcType=VARCHAR},
+		totalPrice = #{totalprice,jdbcType=REAL},
+		accuracy = #{accuracy,jdbcType=TINYINT},
+		status =
+		#{status,jdbcType=TINYINT},
+		remark = #{remark,jdbcType=VARCHAR},
+		createBy = #{createby,jdbcType=VARCHAR},
+		createTime =
+		#{createtime,jdbcType=TIMESTAMP},
+		updateBy =
+		#{updateby,jdbcType=VARCHAR},
+		updateTime =
+		#{updatetime,jdbcType=TIMESTAMP},
+		logicCounter =
+		#{logiccounter,jdbcType=BIGINT},
+		logicDelete =
+		#{logicdelete,jdbcType=BIT}
+		where queryProjectID =
+		#{queryprojectid,jdbcType=INTEGER}
+	</update>
+	<select id="projectNameExisted" resultType="java.lang.Boolean"
+		parameterType="java.lang.String">
+		select
+		count(*)
+		from t_project_query
+		where name =
+		#{name,jdbcType=VARCHAR}
+	</select>
+	<select id="loadQueryProject" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_project_query where userID =
+		#{userid,jdbcType=VARCHAR} and
+		logicDelete !=1 order by createTime desc
+	</select>
+	<select id="selectProjectNameByUserID" resultType="java.lang.String">
+		select name
+		from t_project_query where userID =
+		#{userid,jdbcType=VARCHAR} and
+		logicDelete !=1 order by createTime desc
+	</select>
+	<update id="deleteProjectByLogic" parameterType="java.lang.Integer">
+		update
+		t_project_query
+		set
+		logicDelete = 1
+		where queryProjectID =
+		#{queryprojectid,jdbcType=INTEGER}
+	</update>
+	<select id="countProjectNameByUserID" resultType="java.lang.Integer">
+		select
+		count(*)
+		from t_project_query
+		where userID =
+		#{userid,jdbcType=VARCHAR} and name
+		like
+		concat(#{name,jdbcType=VARCHAR}, '%') and
+		logicDelete !=1
+	</select>
+	<update id="updateProjectStatus2Inquiring" parameterType="java.lang.Integer">
+		update
+		t_project_query
+		set
+		status = 1
+		where queryProjectID =
+		#{queryprojectid,jdbcType=INTEGER} and status = 0 and logicDelete = 0
+	</update>
+	<select id="loadLastTBQProject" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_project_query
+		where userID =
+		#{userid,jdbcType=VARCHAR} and
+		tbqProjectID =
+		#{tbqprojectid,jdbcType=INTEGER} and logicDelete !=1
+		order by createTime desc
+		limit 0,1
+	</select>
+</mapper>

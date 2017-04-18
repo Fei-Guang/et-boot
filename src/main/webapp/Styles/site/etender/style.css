@@ -1,0 +1,5370 @@
+@charset "utf-8";
+
+/*-------------------------------------
+网站特定样式
+version:  1.5
+author:   廖凌浩
+email:    liaolinghao@126.com
+
+在该样式中，浮动提示图层为99999，弹出菜单图层为1，弹出提示层为2，弹出下拉文本输入框图层为1000，用户卡片图层为1000
+
+，弹出框的图层为1001，锁屏进度的图层为2001
+
+-------------------------------------*/
+a {
+	text-decoration: none !important;
+}
+
+a:focus, input:focus {
+	outline: none !important;
+}
+
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+	text-align: left;
+	table-layout: fixed;
+}
+
+select {
+	border: solid 1px #000;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	padding-right: 20px;
+	background: url(images/gray_triangle.png) no-repeat scroll right center
+		transparent;
+	cursor: pointer;
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+.clear {
+	clear: both;
+}
+/* 
+.shadow {
+	box-shadow: 0 2px 2px #CBCBCB;
+	-moz-box-shadow: 0 2px 2px #CBCBCB;
+	-webkit-box-shadow: 0 2px 2px #CBCBCB;
+	For IE 8
+	-ms-filter:
+		"progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#CBCBCB')";
+	For IE 5.5 - 7
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135,
+		Color='#CBCBCB');
+} */
+div.main {
+	margin: 10px;
+	text-align: left;
+}
+
+div.tip {
+	color: #FE5E5D;
+}
+
+span.star {
+	display: inline-block;
+	background: url(images/star.png) no-repeat left center;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
+}
+
+span.need {
+	color: red;
+	padding-left: 5px;
+}
+
+span.border {
+	width: 1px;
+	height: 18px;
+	display: inline-block;
+	background-color: #919194;
+	padding: 0px !important;
+}
+
+.chk+label {
+	background-color: #FFF;
+	border: 1px solid #dadada;
+	border-radius: 3px;
+	display: inline-block;
+	cursor: pointer;
+	padding: 7px;
+	position: relative;
+	margin-left: 5px;
+	margin-top: 2px;
+	font-size: 12px !important;
+}
+
+div.button {
+	padding: 20px 25px 28px;;
+	line-height: 30px;
+	height: 40px;
+}
+
+div.button input {
+	margin-left: 15px;
+	cursor: pointer;
+	height: 30px;
+	width: 172px;
+	float: right;
+	border-radius: 4px;
+	font-size: 12px;
+	border: none;
+}
+
+div.button input.submit {
+	background: #0081ce;
+	color: #fff;
+	font-weight: bold;
+	height: 40px;
+	margin-top: 10px;
+}
+
+div.button input.submit:hover {
+	background-color: #0074ba;
+}
+
+div.button input.cancel {
+	background: #D6D6D6;
+	color: #666;
+	font-weight: bold;
+}
+
+table.head {
+	clear: both;
+	background-color: #e5e9ec;
+	border-collapse: collapse;
+	border-left: 1px solid #e5e9ec;
+	border-right: 1px solid #e5e9ec;
+}
+
+div.autoScroll {
+	border-left: 1px solid #e5e9ec;
+	border-right: 1px solid #e5e9ec;
+	border-bottom: 1px solid #e5e9ec;
+	clear: both;
+	border-collapse: collapse;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background-color: #fff;
+	position: relative;
+}
+
+div.menu {
+	height: 46px;
+}
+
+div.menu span {
+	display: inline-block;
+	line-height: 46px;
+	margin-right: 30px;
+	vertical-align: middle;
+}
+
+div.menu span[status="invalid"] {
+	color: #656566 !important;
+}
+
+div.menu span:hover {
+	color: #0074ba;
+}
+
+div.menu span.active {
+	color: #0074ba;
+}
+
+span.menuItem {
+	vertical-align: middle;
+	padding-left: 26px;
+	cursor: pointer;
+}
+
+table {
+	width: 100%;
+	position: relative;
+}
+
+table.data .chk+label {
+	margin-top: 5px;
+}
+
+table th {
+	margin: 0px;
+	padding: 0px;
+	color: #333333;
+	height: 35px;
+	font-size: 14px;
+	padding-right: 10px;
+}
+
+table.data td {
+	height: 32px;
+	padding-right: 10px;
+	border-bottom: 1px solid #e5e9ec;
+}
+
+table .box {
+	width: 30px;
+	max-width: 30px;
+}
+table .addOrDelete{
+	width:15px;
+	max-width:15px;
+}
+table .sn {
+	width: 30px;
+	max-width: 30px;
+}
+
+table .sn input {
+	text-indent: 8px;
+}
+
+table tr input {
+	width: 100%;
+	height: 25px;
+	color: #333333;
+	border: medium none;
+	outline: none;
+	background-color: transparent;
+	cursor: default;
+	background-color: transparent;
+}
+
+table tr input.edit {
+	background-color: #FFe8a1 !important;
+}
+
+table tr td.unedit input {
+	background-color: transparent !important;
+}
+
+table tr.item:hover input {
+	background-color: transparent;
+}
+
+table tr.edit td.edit input {
+	background-color: #f5f5f5 !important;
+}
+
+table tr.highlight td {
+	background-color: #e6f4ff !important;
+}
+
+table tr.border {
+	border: 2px solid #0074ba !important;
+}
+
+div.lastRow {
+	line-height: 10px;
+	height: 10px;
+	border-bottom: 1px solid #dadde0;
+	border-left: 1px solid #dadde0;
+	border-right: 1px solid #dadde0;
+	background-color: #fff;
+}
+
+label.highlight {
+	background: #FF0;
+	color: #ff6c4a;
+}
+
+/* 框架 */
+.main_body {
+	background-color: #F5F5F5;
+}
+.layout {
+	width: 100%;
+	height: 100%;
+	min-width: 1200px;
+	margin: 0 auto;
+	position: relative;
+	display: table;
+	margin: 0 auto;
+	min-width: 1200px;
+}
+
+.layout>div {
+	display: table-row;
+}
+
+.tableLayout {
+	display: table;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+}
+
+.row {
+	display: table-row;
+}
+
+/* .cell {
+	display: table-cell;
+} */
+
+/*过滤弹出框*/
+div.popUp {
+	width: 180px;
+	background-color: #fff;
+	position: absolute;
+	z-index: 1;
+	border: 1px solid #dadde0;
+	box-shadow: 0px 0px 3px 1px #eee;
+    display: none;
+}
+
+div.popUp div.searchBox {
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+div.popUp div.searchBox table {
+	width: 162px;
+	height: 100px;
+}
+
+div.popUp div.searchBox input.inputBox {
+	width: 160px;
+	height: 25px;
+	background-color: #fff;
+	border: 1px solid #dadde0;
+	margin-left: 10px;
+	border-radius: 4px;
+}
+
+div.popUp div.searchBox span.searchIcon {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	z-index: 100;
+	position: absolute;
+	right: 10px;
+	top: 14px;
+	right: 15px;
+	background: url(images/search.png) no-repeat center;
+	cursor: pointer;
+}
+
+div.popUp div.choose {
+	width: 160px;
+	height: 164px;
+	background-color: #fff;
+	margin-left: 10px;
+	overflow-y: auto;
+}
+
+div.popUp div.choose table tr:hover {
+	background-color: #e6f4ff;
+}
+
+div.popUp div.choose table tr td.td1 input:hover {
+	color: #ff6c4a;
+}
+
+div.popUp div.okCancel {
+	width: 141px;
+	height: 26px;
+	margin-left: 30px;
+	margin-top: 18px;
+	margin-bottom: 18px;
+}
+
+div.popUp div.okCancel input {
+	width: 61px;
+	height: 26px;
+	border: 0px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+div.popUp div.okCancel input.yes {
+	background-color: #0081ce;
+	border-radius: 4px;
+	color: #fff;
+	margin-right: 5px;
+}
+
+div.popUp div.okCancel input.yes:hover {
+	background-color: #0074ba;
+}
+
+div.popUp div.okCancel input.cancel {
+	background-color: #dedede;
+	border-radius: 4px;
+	font-weight: bold;
+	color: #999;
+}
+
+div.popUp div.okCancel input.cancel:hover {
+	background-color: #d4d4d4;
+	color: #666;
+}
+/* 对话框*/
+div.dialog {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	min-height: 100%;
+	z-index: 1001;
+	display: none;
+}
+
+div.dialog div.back {
+	background: #353535;
+	opacity: 0.5;
+	filter: alpha(opacity = 50);
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+div.dialog div.cnts {
+	border: 1px solid #959595;
+	border-radius: 8px;
+	background-color: #fff;
+	text-align: left;
+	left: 50%;
+	top: 100px;
+	position: absolute;
+}
+
+div.dialog a.close {
+	position: absolute;
+	right: 17px;
+	top: 8px;
+	width: 20px;
+	height: 20px;
+	display: block;
+	background: url(images/hideAttachment.png) no-repeat center;
+}
+
+div.dialog a.close:hover {
+	background: url(images/hideAttachment_hover.png) no-repeat center;
+}
+
+div.dialog div.titles {
+	margin-top: 10px;
+	line-height: 30px;
+	color: #666;
+}
+
+div.dialog div.input input.text {
+	width: 540px;
+	height: 38px;
+	border: 1px solid #dadde0;
+	border-radius: 4px;
+	background: none;
+	line-height: 38px;
+	text-indent: 10px;
+}
+
+div.dialog div.button {
+	padding: 20px 37px 20px 26px;
+	line-height: 30px;
+	height: 30px;
+}
+
+div.dialog div.button input {
+	margin-left: 15px;
+	cursor: pointer;
+	height: 30px;
+	width: 84px;
+	float: right;
+	border-radius: 4px;
+	font-size: 12px;
+	border: none;
+}
+
+div.dialog div.button input.submit {
+	background: #0074ba;
+	color: #fff;
+	font-weight: bold;
+}
+
+div.dialog div.button input.cancel {
+	background: #dedede;
+	color: #999;
+	font-weight: bold;
+	margin-right: -15px;
+}
+
+div.dialog div.button input.cancel:hover {
+	background: #d4d4d4;
+	color: #666;
+}
+/*下载弹出框*/
+div.downLoad {
+	width: 568px;
+	min-height: 100px;
+	max-height: 268px;
+	margin: -10px -15px;
+	display: none;
+}
+
+div.downLoad table.tipHead tr.one {
+	border: 1px solid #d3d3d3;
+}
+
+div.downLoad table.tipHead tr th.fileOne {
+	width: 400px;
+	padding-left: 10px;
+}
+
+div.downLoad div.downTable {
+	max-height: 280px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+div.downLoad table.data {
+	width: 568px;
+}
+
+div.downLoad table.data tr {
+	height: 35px;
+	border-bottom: 1px solid #d3d3d3;
+	border-left: 1px solid #d3d3d3;
+	border-right: 1px solid #d3d3d3;
+	border-bottom: 1px solid #d3d3d3;
+}
+
+div.downLoad table.data tr:hover {
+	background-color: #d5f3fc;
+}
+
+div.downLoad table.data tr td {
+	padding-left: 7px;
+	text-align: left;
+}
+
+div.downLoad table.data tr td.tdOne {
+	width: 395px;
+	font-size: 12px;
+	color: #666666;
+}
+
+div.downLoad table.data tr td.tdTwo {
+	width: 85px;
+	color: #666666;
+}
+
+div.downLoad table.data tr td.tdThree a {
+	background: url(images/download.png) no-repeat left;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+}
+
+div.downLoad table.data tr td.tdThree:hover a {
+	background: url(images/download_hover.png) no-repeat left;
+}
+
+/* 进度弹出层 */
+#progressDialog {
+	z-index: 2001;
+}
+
+#progressDialog img {
+	display: block;
+	margin: auto;
+}
+
+/*消息提示框*/
+div#informationTipBox {
+	display: none;
+	border: 1px solid #eee;
+	margin: -5px -15px;
+}
+
+div#informationTipBox div.messageFirst {
+	width: 548px;
+	height: 73px;
+	border-bottom: 1px solid #eee;
+}
+
+div#informationTipBox div.messageFirst div.messageTime {
+	width: 548px;
+	height: 30px;
+}
+
+div#informationTipBox div.messageFirst div.messageTime span.envelopeIcon
+	{
+	display: inline-block;
+	width: 30px;
+	height: 27px;
+	background: url(images/envelope_close.png) no-repeat center;
+	float: left;
+}
+
+div#informationTipBox div.messageSecond div.messageTime span.envelopeIcon
+	{
+	background: url(images/envelope_open.png) no-repeat center;
+}
+
+div#informationTipBox div.messageThird div.messageTime span.envelopeIcon
+	{
+	background: url(images/envelope_open.png) no-repeat center !important;
+}
+
+div#informationTipBox div.messageFirst {
+	font-size: 12px;
+	color: #666;
+	font-weight: bold;
+}
+
+div#informationTipBox div.messageFirst div.messageTime span.time {
+	width: 100px;
+	line-height: 30px;
+	display: inline-block;
+	background-color: #fff;
+	float: left;
+}
+
+div#informationTipBox div.messageFirst div.specificMessage {
+	width: 558px;
+	line-height: 22px;
+	padding-left: 10px;
+	text-align: left;
+}
+
+div#informationTipBox div.messageThird {
+	border-bottom: 0px;
+	font-weight: normal;
+}
+
+div#informationTipBox div.messageSecond {
+	font-weight: normal;
+}
+
+/*右下角提示框*/
+div#rightPromptBox {
+	display: none;
+	margin: -5px -10px;
+}
+
+div#rightPromptBox div.receiveInfo {
+	width: 270px;
+	height: 85px;
+	line-height: 25px;
+	font-size: 12px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+div#rightPromptBox div.notReadMore {
+	width: 270px;
+	height: 23px;
+	bottom: 0px;
+}
+
+div#rightPromptBox div.notReadMore div.left {
+	width: 70px;
+	height: 23px;
+	float: left;
+}
+
+div#rightPromptBox div.notReadMore div.left span.noread, div#rightPromptBox div.notReadMore div.right span.more
+	{
+	cursor: pointer;
+	display: inline-block;
+	line-height: 23px;
+	font-size: 12px;
+	color: #64C7F0;
+}
+
+div#rightPromptBox div.notReadMore div.left span.noread {
+	color: #000;
+}
+
+div#rightPromptBox div.notReadMore div.left span.noreadIcon {
+	cursor: pointer;
+	display: inline-block;
+	width: 20px;
+	height: 23px;
+	margin-right: 5px;
+	vertical-align: middle;
+	background: url(images/envelope_close.png) no-repeat center;
+}
+
+div#rightPromptBox div.notReadMore div.right span.moreIcon {
+	display: inline-block;
+	width: 20px;
+	height: 23px;
+	margin-right: 5px;
+	vertical-align: middle;
+	background: url(images/plus.png) no-repeat center;
+	cursor: pointer;
+}
+
+/* 弹出菜单 */
+div.popupMenu {
+	z-index: 1;
+	max-height: 300px;
+	position: absolute;
+	background-color: #fff;
+	border: 1px solid #e8ebeb;
+	box-shadow: 0px 0px 10px 1px #e8ebeb;
+	display: none;
+}
+
+div.popupMenu div.arrowTop {
+	position: absolute;
+	left: 40px;
+	top: -9px;
+}
+
+div.popupMenu div.arrowTop .arrow1 {
+	position: absolute;
+	top: 0px;
+	height: 0;
+	width: 0;
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	border-bottom: 9px solid #c7d5de;
+}
+
+div.popupMenu div.arrowTop .arrow2 {
+	position: absolute;
+	top: 1px;
+	height: 0;
+	width: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #fff;
+}
+
+div.popupMenu span.list {
+	display: block;
+	line-height: 30px;
+	height: 30px;
+	font-size: 14px;
+	padding-left: 13px;
+	color: #666666;
+	overflow: hidden;
+}
+
+div.popupMenu div#subcontractList div.subcontractListItem span.deleteIcon
+	{
+	width: 20px;
+	height: 20px;
+	background: url(images/delete_subcontract.png) no-repeat left center;
+	margin-top: -25px;
+	float: right;
+	display: none;
+	cursor: pointer;
+}
+
+div.popupMenu span.list:hover {
+	background-color: #0081ce;
+	cursor: default;
+	color: #fff;
+}
+
+span.triangle {
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	cursor: pointer;
+	background: url(images/triangle.png) no-repeat left center;
+}
+
+/*excel表*/
+.excel_1 {
+	background-color: #dfeff8;
+}
+
+.excel_2 {
+	color: #1e7373;
+}
+
+.excel_3 {
+	background-color: #f7e9cd;
+}
+
+.excel_4 {
+	color: #675116;
+}
+
+.excel_5 {
+	background-color: #f3efed;
+}
+
+.excel_6 {
+	color: #050923;
+}
+
+.excel_7 {
+	color: #1b4e56;
+}
+
+.excel_8 {
+	color: #256d6d;
+}
+
+.excel_9 {
+	color: #32aeb1;
+}
+
+.excel_10 {
+	color: #145d61;
+}
+
+.excel_11 {
+	color: #8e4946;
+}
+
+.excel_12 {
+	font-weight: bold;
+}
+
+.excel_13 {
+	font-family: Verdana, Arial, Sans-serif;
+}
+
+.excel_14 {
+	font-style: oblique;
+}
+
+.excel_15 {
+	text-decoration: underline;
+}
+
+.excel_16 {
+	font-weight: normal;
+}
+
+.excel_17 {
+	color: #63c8ef;
+}
+
+/* 页头样式 */
+div.header {
+	width: 100%;
+	height: 56px;
+	background-color: #0081ce;
+}
+
+div.header div.bannerCell {
+	height: 56px;
+	width: 1180px;
+	margin: 0 auto;
+}
+
+div.header div#logo {
+	width: 120px;
+	line-height: 30px;
+	padding-top: 15px;
+	float: left;
+	margin-left: -2px;
+}
+/*进入工程界面的banner*/
+div.projectHeader {
+	height: 50px;
+}
+
+div.projectHeader div#logoLeft {
+	width: 225px;
+	height: 50px;
+	float: left;
+	background-color: #0074ba;
+}
+
+div.projectHeader div#logoLeft img {
+	margin-top: 10px;
+}
+
+div.projectHeader div.right {
+	float: right;
+	height: 50px;
+	height: 50px;
+	margin-right: 10px !important;
+}
+
+div.projectHeader div.right ul li {
+	float: left;
+}
+
+div.projectHeader div.right ul li a {
+	color: #fff;
+	font-size: 14px;
+}
+
+div.projectHeader div.right div.projectSupport {
+	margin-top: -6px !important;
+}
+
+div.projectHeader div.right div.projectSupport div#menuList ul.menuContent li a
+	{
+	margin-left: 35px !important;
+}
+
+div.projectHeader div.right div.projectSupport div.arrow1 {
+	left: 79px !important;
+}
+
+div.projectHeader div.right div.projectSupport div.arrow2 {
+	left: 80px !important;
+}
+
+div.projectHeader div.right div.userMenu {
+	margin-top: -6px !important;
+	z-index: 200;
+}
+
+div.projectHeader div.right ul.projectSysmenuRight li {
+	height: 50px;
+	border-right: 1px solid #0074ba;
+}
+
+div.projectHeader div.right ul.projectSysmenuRight li.secondLi:hover {
+	background-color: #0074ba;
+}
+
+div.projectHeader div.right ul.projectSysmenuRight li.fourLi:hover {
+	background-color: #0074ba;
+}
+
+div.projectHeader div.right ul.projectSysmenuRight li.fiveLi:hover {
+	background-color: #0074ba;
+}
+
+div.projectHeader div.right ul.projectSysmenuRight li.secondLi {
+	width: 120px;
+	border-left: 1px solid #0074ba;
+	background: url(images/homePage.png) no-repeat left 13px center;
+}
+
+div.projectHeader div.right ul.projectRightSysmenu li span {
+	display: inline-block;
+}
+
+div.projectHeader div.right ul.projectSysmenuRight li span.icon {
+	height: 50px;
+	line-height: 50px;
+	margin-left: 23px;
+}
+
+div.projectHeader div.right ul.projectSysmenuRight li span.hp {
+	height: 40px;
+}
+
+div.projectHeader div.right ul.projectSysmenuRight li.fourLi {
+	width: 116px;
+	background: url(images/list.png) no-repeat left 13px center;
+}
+
+div.projectHeader div.right ul.projectSysmenuRight li.fiveLi {
+	background: url(images/support.png) no-repeat left 10px center;
+	width: 120px;
+}
+
+div.projectHeader div.right ul.projectSysmenuRight li.sixLi {
+	width: 122px;
+	position: relative;
+}
+
+div.projectHeader div.right ul.projectSysmenuRight li.fiveLi span.triangleIcon
+	{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin-left: 10px;
+	background: url(images/down.png) no-repeat center;
+}
+
+div.projectHeader div.right ul.projectSysmenuRight li.sixLi span.infors
+	{
+	display: inline-block;
+	height: 54px;
+	width: 30px;
+	background-color: #f00;
+	vertical-align: middle;
+	float: left;
+	margin-left: 4px;
+	background: url(images/notification.png) no-repeat center;
+}
+
+div.projectHeader div.right ul.projectSysmenuRight li.sixLi span.num {
+	position: absolute;
+	left: 23px;
+	top: 6px;
+	background-color: #FD5433;
+	border-radius: 50%;
+	width: 16px;
+	height: 16px;
+	line-height: 16px;
+	color: #fff;
+	font-size: 10px;
+	text-align: center;
+	display: none;
+}
+
+div.projectHeader div.right ul.projectSysmenuRight li.sixLi span.notif {
+	float: right;
+	margin-top: 19px;
+	margin-right: 10px;
+}
+
+/*未登录状态的support弹出框*/
+div.header div.rightHome ul.homeSupport {
+	float: left;
+	height: 56px;
+}
+
+div.header div.rightHome ul.homeSupport li {
+	width: 125px;
+	height: 56px;
+	line-height: 56px;
+	float: left;
+	font-size: 16px;
+	color: #fff;
+}
+
+div.header div.rightHome ul.homeSupport li span a {
+	color: #fff;
+}
+
+div.header div.rightHome ul.homeSupport li:hover {
+	background-color: #0074ba;
+}
+
+div.header ul li.threeLi span.switchIcon {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-color: #f00;
+	margin-left: 15px;
+	background: url(images/down.png) no-repeat center;
+}
+
+div.header ul li.threeLi span.up {
+	background: url(images/up.png) no-repeat center;
+}
+/*未登录状态借宿*/
+div.header div.rightHome {
+	height: 56px;
+	float: right;
+	margin-right: 10px;
+}
+
+div.header div.left {
+	float: left;
+}
+
+div.header div.sysMenu {
+	position: relative;
+	margin-right: 5px;
+}
+
+div.header div.right ul.rightPersonalInformation {
+	float: right;
+	height: 56px;
+}
+
+div.header div.right ul.supportUl li.threeLi div.support {
+	width: 108px;
+	margin-left: 0px;
+}
+
+div.header div.right ul.supportUl li.threeLi div.support div.arrowTop div.arrow1
+	{
+	left: 64px;
+}
+
+div.header div.right ul.supportUl li.threeLi div.support div.arrowTop div.arrow2
+	{
+	left: 65px;
+}
+
+div.header div.right ul li:hover {
+	background-color: #0074ba;
+}
+
+div.header div.right ul li a {
+	color: #fff;
+}
+
+div.header div.right ul li.firstLi {
+	line-height: 56px;
+	float: left;
+	cursor: pointer;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+div.header div.right ul li span {
+	display: inline-block;
+	color: #fff;
+	font-size: 14px;
+}
+
+div.header div.right ul li.firstLi span.icon {
+	width: 20px;
+	height: 20px;
+	margin-left: 7px;
+	background: url(images/user.png) no-repeat center;
+	margin-top: 15px;
+	vertical-align: top;
+}
+
+div.header div.right ul li.firstLi span.mailName {
+	line-height: 30px;
+	margin-left: 5px;
+	text-align: left;
+	margin-right: 10px;
+	font-size: 14px;
+}
+
+div.header div.right ul li.firstLi span.triangleIcon {
+	width: 20px;
+	height: 56px;
+	float: right;
+	background: url(images/down.png) no-repeat left center;
+	cursor: pointer;
+}
+
+div.header div.right ul li.firstLi span.up {
+	background: url(images/up.png) no-repeat left center;
+}
+
+div.header div.right ul li.secondLi {
+	width: 110px;
+	line-height: 56px;
+	float: left;
+	color: #fff;
+	position: relative;
+	font-size: 14px;
+}
+
+div.header div.right ul li.threeLi {
+	width: 110px;
+	line-height: 56px;
+	float: left;
+	color: #fff;
+	position: relative;
+	font-size: 14px;
+}
+
+div.header div.right ul li.fourLi {
+	width: 140px;
+	line-height: 56px;
+	float: left;
+	color: #fff;
+	font-size: 14px;
+	position: relative;
+}
+
+div.header div.right ul li.secondLi a {
+	font-size: 14px;
+}
+
+div.header div.right ul li.fourLi span.num {
+	position: absolute;
+	left: 28px;
+	top: 7px;
+	background-color: #FD5433;
+	border-radius: 50%;
+	width: 16px;
+	height: 16px;
+	line-height: 16px;
+	color: #fff;
+	font-size: 10px;
+	text-align: center;
+	display: none;
+}
+
+div.header div.right ul li.fourLi span.notif {
+	padding-right: 10px;
+}
+
+div.header div.right ul li.thirdLi {
+	width: 100px;
+	height: 30px;
+	margin-top: 8px;
+	float: right;
+}
+
+div.header div.sysMenu div.systemMenu {
+	height: 124px;
+	margin-left: -11px;
+	box-shadow: 0px 0px 0px 0px #fff;
+	background-color: #fff;
+	padding-bottom: 0px;
+	display: none;
+}
+
+div.header div.right ul li.fourLi span.infors {
+	display: inline-block;
+	height: 54px;
+	width: 30px;
+	background-color: #f00;
+	vertical-align: middle;
+	float: left;
+	margin-left: 10px;
+	margin-right: -13px;
+	background: url(images/notification.png) no-repeat center;
+}
+
+div.header div.sysMenu div.systemMenu div.arrowTop {
+	left: 15px;
+}
+
+div.header div.sysMenu div.systemMenu div#menuList {
+	width: 100%;
+	height: 41px;
+}
+
+div.header div.sysMenu div.systemMenu div.arrowTop div.arrow2 {
+	border-bottom: 8px solid #FAFAFA;
+}
+
+div.header div.systemMenu div#menuList ul.menuContent {
+	width: 100%;
+}
+
+div.header div.systemMenu div#menuList ul.menuContent li {
+	width: 100%;
+	height: 41px;
+	border-bottom: 1px solid #f0f0f0;
+	border-right: none;
+}
+
+div.header div.systemMenu div#menuList ul.menuContent li span.subCon {
+	display: inline-block;
+	line-height: 38px;
+}
+
+div.header div.systemMenu div#menuList ul.menuContent li a:hover {
+	color: #187bc9;
+}
+
+div.header div.systemMenu div#menuList ul.menuContent li.logout {
+	background: url(images/logout.png) no-repeat left 20px center;
+	border-bottom: 0px;
+}
+
+div.header div.systemMenu div#menuList ul.menuContent li.logout a {
+	height: 28px;
+	margin-right: 84px;
+}
+
+div.header div.systemMenu div#menuList ul.menuContent li.personInfo {
+	background: url(images/personalInfo.png) no-repeat left 20px center;
+}
+
+div.header div.systemMenu div#menuList ul.menuContent li span {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin-top: 8px;
+	margin-left: 5px;
+}
+
+div.header div.systemMenu div#menuList ul.menuContent li.sub {
+	background: url(images/subInfo.png) no-repeat left 20px center;
+}
+
+div.header div.systemMenu div#menuList ul.menuContent li.sub:hover {
+	background: url(images/subInfor__hover.png) no-repeat left 20px center;
+	background-color: #e6f4fd;
+}
+
+div.header div.systemMenu div#menuList ul.menuContent li.personInfo:hover
+	{
+	background: url(images/personal_hover.png) no-repeat left 20px center;
+	background-color: #e6f4fd;
+}
+
+div.header div.systemMenu div#menuList ul.menuContent li.logout:hover {
+	background: url(images/logout__hover.png) no-repeat left 20px center;
+	background-color: #e6f4fd;
+}
+
+div.header div.systemMenu div#menuList ul.menuContent li.help a {
+	margin-left: 30px;
+}
+
+div.header div.systemMenu div#menuList ul.menuContent li a {
+	float: left;
+	margin-left: 50px;
+	line-height: 38px;
+	font-size: 14px;
+	color: #434343;
+}
+
+/*支持弹框*/
+div.header div.sysMenu div.support {
+	width: 121px;
+	height: 41px;
+	margin-left: -1px;
+	box-shadow: 0px 0px 0px 0px #fff;
+	background-color: #fff;
+	padding-bottom: 0px;
+	display: none;
+	z-index: 200;
+}
+
+div.header div.sysMenu div.support  div.arrowTop div.arrow1 {
+	left: 95px;
+}
+
+div.header div.sysMenu div.support  div.arrowTop div.arrow2 {
+	left: 96px;
+}
+
+div.header div.sysMenu div.support div#menuList ul.menuContent li:hover
+	{
+	background-color: #e6f4fd;
+}
+
+div.header div.support div#menuList ul.menuContent li.about {
+	background: url(images/aboutus.png) no-repeat left 20px center;
+}
+
+div.header div.support div#menuList ul.menuContent li.about:hover {
+	background: url(images/aboutus_hover.png) no-repeat left 20px center;
+}
+
+div.header div.support div#menuList ul.menuContent li.help {
+	background: url(images/help.png) no-repeat left 10px center;
+}
+
+div.header div.support div#menuList ul.menuContent li.help:hover {
+	background: url(images/help_hover.png) no-repeat left 10px center;
+}
+
+div.header div.support div#menuList ul.menuContent li.contact {
+	background: url(images/contactus.png) no-repeat left 20px center;
+}
+
+div.header div.support div#menuList ul.menuContent li.contact:hover {
+	background: url(images/contactus_hover.png) no-repeat left 20px center;
+}
+
+div.header div.rightHome div.loginSupport {
+	width: 122px;
+	height: 41px;
+	box-shadow: 0px 0px 0px 0px #fff;
+	background-color: #fff;
+	padding-bottom: 0px;
+	display: none;
+}
+
+div.header div.rightHome div.loginSupport div#menuList ul.menuContent li a
+	{
+	margin-left: 35px !important;
+}
+
+div.header div.rightHome div.loginSupport div.arrowTop div.arrow1 {
+	left: 50px;
+}
+
+div.header div.rightHome div.loginSupport div.arrowTop div.arrow2 {
+	left: 51px;
+}
+/* 底部 */
+.footer {
+	width: 100%;
+	line-height: 35px;
+	background-color: #333;
+	border-top: 1px solid #dadde0;
+	color: #5e6163;
+	height: 35px;
+}
+
+.footer .cnts {
+	height: 36px;
+	margin: 0 auto;
+}
+
+.footer .fl {
+	margin: 0 auto;
+}
+
+.footer .fr {
+	float: right;
+}
+
+.videoHelp {
+	width: 164px;
+	height: 48px;
+	font-weight: bold;
+	background-color: #0080cb;
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	border-radius: 6px 6px 0px 0px;
+}
+
+.videoHelp:hover {
+	background-color: #0074ba;
+}
+
+.videoHelp span.videoIcon {
+	display: inline-block;
+	width: 150px;
+	margin-left: 23px;
+	line-height: 48px;
+	color: #fff;
+	font-size: 16px;
+	background: url(images/video.png) no-repeat left;
+}
+/* 询价正文样式 */
+div.projectIndex {
+	overflow-y: hidden;
+}
+
+div.projectIndex div.tableChange {
+	height: 40px;
+	background-color: #fff;
+	border-right: 1px solid #dadde0;
+	border-top: 1px solid #dadde0;
+}
+
+div.projectIndex div.tableChange div.tableLeft {
+	float: left;
+}
+
+div.projectIndex div.tableChange div.rightNone {
+	float: right;
+	height: 39px;
+	margin-left: 100px;
+	border-bottom: 1px solid #e5e9ec;
+	margin-top: -40px;
+}
+
+div.projectIndex div.tableChange span {
+	display: inline-block;
+	width: 215px;
+	height: 38px;
+	line-height: 33px;
+	text-align: center;
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif, "微软雅黑";
+	color: #666;
+	background-color: #fff;
+	border-right: 1px solid #e5e9ec;
+	border-left: 1px solid #e5e9ec;
+	cursor: pointer;
+}
+
+div.projectIndex div.tableChange span span.topBorder {
+	display: inline-block;
+	width: 215px;
+	height: 3px;
+	border-top: 0px #fff solid;
+	border-bottom: 0px #fff solid;
+	border-right: 0px #fff solid;
+	border-left: 0px #fff solid;
+	float: left;
+}
+
+div.projectIndex div.tableChange span span.topBorder.active {
+	background-color: #0074ba;
+}
+
+div.projectIndex div.tableChange span.quoteProject {
+	margin-left: -4px;
+	border-bottom: 1px #e5e9ec solid;
+}
+
+div.projectIndex div.autoScroll {
+	border-bottom: none;
+}
+
+div.projectIndex div.control {
+	background-color: #fff;
+	height: 47px;
+	margin-top: -2px;
+	border-left: 1px solid #e5e9ec;
+	border-right: 1px solid #e5e9ec;
+	padding-left: 14px;
+}
+
+div.projectIndex div.control div.menu {
+	float: left
+}
+
+div.projectIndex div.menu span#createProject {
+	background: url(images/add.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#createProject[status="invalid"] {
+	background: url(images/add.png) no-repeat left center !important;
+}
+
+div.projectIndex div.menu span#createProject:hover {
+	background: url(images/add_hover.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#createProject[class*="active"] {
+	background: url(images/add_hover.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#editProject {
+	background: url(images/edit.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#editProject[status="invalid"] {
+	background: url(images/edit.png) no-repeat left center !important;
+}
+
+div.projectIndex div.menu span#editProject:hover {
+	background: url(images/edit_hover.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#editProject[class*="active"] {
+	background: url(images/edit_hover.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#deleteProject {
+	background: url(images/delete.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#deleteProject[status="invalid"] {
+	background: url(images/delete.png) no-repeat left center !important;
+}
+
+div.projectIndex div.menu span#deleteProject:hover {
+	background: url(images/delete_hover.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#deleteProject[class*="active"] {
+	background: url(images/delete_hover.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#passwordProject {
+	background: url(images/password.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#passwordProject[status="invalid"] {
+	background: url(images/password.png) no-repeat left center !important;
+}
+
+div.projectIndex div.menu span#passwordProject:hover {
+	background: url(images/password_hover.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#passwordProject[class*="active"] {
+	background: url(images/password_hover.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#recordProject {
+	background: url(images/record.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#recordProject[status="invalid"] {
+	background: url(images/record.png) no-repeat left center !important;
+}
+
+div.projectIndex div.menu span#recordProject:hover {
+	background: url(images/record_hover.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#recordProject[class*="active"] {
+	background: url(images/record_hover.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#inquireProject {
+	background: url(images/inquire.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#inquireProject[status="invalid"] {
+	background: url(images/inquire.png) no-repeat left center !important;
+}
+
+div.projectIndex div.menu span#inquireProject:hover {
+	background: url(images/inquire_hover.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#inquireProject[class*="active"] {
+	background: url(images/inquire_hover.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#downloadProject {
+	background: url(images/download.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#downloadProject:hover {
+	background: url(images/download_hover.png) no-repeat left center;
+}
+
+div.projectIndex div.menu span#downloadProject[class*="active"] {
+	background: url(images/download_hover.png) no-repeat left center;
+}
+
+div.projectIndex div#quoteProject {
+	display: none;
+}
+
+div.projectIndex div#inquireProject table tr.item:hover td {
+	background-color: #e6f4ff;
+}
+
+div.projectIndex div#inquireProject table .sn {
+	width: 50px;
+	max-width: 50px;
+	padding-left: 10px;
+}
+
+div.projectIndex div#inquireProject table .td3 {
+	width: 480px;
+	max-width: 480px;
+}
+
+div.projectIndex div#inquireProject table .td4 {
+	width: 234px;
+	max-width: 234px;
+}
+
+/* div.projectIndex div#inquireProject table .td4 input {
+	text-indent: 8px;
+} */
+div.projectIndex div#inquireProject table .td5 {
+	width: 187px;
+	max-width: 187px;
+}
+
+div.projectIndex div#inquireProject table .td6 {
+	
+}
+
+div.projectIndex div#quoteProject table tr.item:hover td {
+	background-color: #e6f4ff;
+}
+
+div.projectIndex div#quoteProject table .sn {
+	width: 50px;
+	max-width: 50px;
+	padding-left: 10px;
+}
+
+div.projectIndex div#quoteProject table .td3 {
+	white-space: nowrap;
+	min-width: 200px;
+}
+
+div.projectIndex div#quoteProject table .td4 {
+	width: 234px;
+	max-width: 234px;
+}
+
+div.projectIndex div#quoteProject table .td5 {
+	width: 180px;
+	max-width: 180px;
+}
+
+div.projectIndex div#quoteProject table .td6 {
+	width: 180px;
+	max-width: 180px;
+}
+
+div.projectIndex div#quoteProject table .td7 {
+	width: 180px;
+	max-width: 180px;
+}
+
+div.projectIndex div#quoteProject table .td8 {
+	width: 110px;
+	max-width: 110px;
+}
+
+div.projectIndex div#quoteProject table .td9 {
+	white-space: nowrap;
+    width:100px;
+	max-width: 120px;
+}
+
+div.projectIndex div#quoteProject div.autoScroll table tr.item td.td5 input,
+	div.projectIndex div#quoteProject div.autoScroll table tr.item td.td6 input,
+	div.projectIndex div#quoteProject div.autoScroll table tr.item td.td7 input,
+	div.projectIndex div#quoteProject div.autoScroll table tr.item td.td8 input,
+	div.projectIndex div#quoteProject div.autoScroll table tr.item td.td9 input
+	{
+	text-indent: 15px !important;
+}
+/* 工程询价正文样式 */
+div.projectInquire {
+	border-top: 1px solid #dadde0;
+	background-color: #fff;
+	position: relative;
+}
+
+div.sentPorject {
+	margin: 0px;
+	background-color: #fff;
+}
+
+div.sentPorject div.autoScroll table tr.item:hover td {
+	background-color: #e6f4ff;
+}
+
+div.projectInquire div#line {
+	width: 1px;
+	background-color: #37b4eb;
+	top: 30px;
+	left: 29px;
+	position: absolute;
+}
+
+div.projectInquire div#selectSubcontract {
+	width: 450px;
+	line-height: 35px;
+	margin-left: 26px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	clear: both;
+	background: url(images/dian.png) no-repeat left center;
+	padding-left: 30px;
+	position: relative;
+	clear: both;
+}
+
+div.projectInquire div#selectSubcontract input {
+	width: 400px;
+	height: 33px;
+	border-radius: 3px;
+	outline: medium;
+	border: 1px solid #dadada;
+	color: #000;
+	font-size: 14px;
+	text-indent: 12px;
+	padding-right: 30px;
+	outline: medium;
+}
+
+div.projectInquire div#selectSubcontract input.blueBorder {
+	border: 1px solid #0074ba;
+}
+
+div.projectInquire div#selectTime input.blueBorder {
+	border: 1px solid #0074ba;
+}
+
+div.projectInquire div#selectSubcontract span.triangle {
+	top: 13px;
+	left: 440px;
+}
+
+div.projectInquire div#selectSubcontract span#importSubcontract {
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	top: 1px;
+	left: 470px;
+	cursor: pointer;
+	background: url(images/importSubcontract.png) no-repeat left center;
+}
+
+div.projectInquire div.subcontractList {
+	margin: 7px auto;
+	top: 45px;
+	left: 56px;
+	border-radius: 4px;
+}
+
+div.projectInquire div.subcontractList div.arrow2 {
+	left: 1px;
+}
+
+div.projectInquire div.subcontractList div.arrow1 {
+	left: 0px;
+}
+
+div.projectInquire div.subcontractList div#subcontractList {
+	height: 300px;
+	width: 430px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	text-align: left;
+}
+
+div.projectInquire div.timeZoneList {
+	margin: 7px auto;
+	top: 120px;
+	left: 56px;
+	border-radius: 4px;
+}
+
+div.projectInquire div#selectTime span.timeZoneTriangle {
+	top: 13px;
+	left: 330px;
+}
+
+div.projectInquire button.ui-datepicker-trigger {
+	width: 20px;
+	height: 20px;
+	border: 0px;
+	position: absolute;
+	top: 8px;
+	margin-left: -30px;
+	outline: none;
+	background: url(images/triangle.png) no-repeat left center;
+	cursor: pointer;
+}
+
+div.projectInquire div#selectTime span.datetimeTriangle {
+	top: 13px;
+	left: 625px;
+}
+
+div.projectInquire div.timeZoneList div#timeZoneList {
+	height: 178px;
+	width: 320px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	text-align: left;
+}
+
+div.projectInquire div.timeZoneList div#timeZoneList div.predefine div.control
+	{
+	margin-top: 20px;
+	font-size: 14px;
+	padding-right: 18px;
+	vertical-align: middle;
+}
+
+div.projectInquire div.timeZoneList div#timeZoneList div.predefine div.control span
+	{
+	display: inline-block;
+	color: #333333;
+	font-size: 12px;
+	margin-left: 6px;
+	cursor: pointer;
+	line-height: 20px;
+}
+
+div.projectInquire div.timeZoneList div#timeZoneList div.predefine div.control span.plus
+	{
+	background: url(images/plus.png) no-repeat center center;
+	width: 16px;
+	height: 20px;
+}
+
+div.projectInquire div.timeZoneList div#timeZoneList div.all {
+	display: none;
+}
+
+div.projectInquire div.title {
+	background: url(images/dian.png) no-repeat left center;
+	padding-left: 22px;
+	margin-left: 26px;
+	font-size: 14px;
+	line-height: 34px;
+}
+/* div.projectInquire div.selectTitle{
+	margin-top:30px;
+} */
+div.projectInquire div.title span.sentIcon {
+	display: inline-block;
+	width: 23px;
+	height: 20px;
+	padding-top: 13px;
+	padding-right: 8px;
+	float: left;
+}
+
+div.projectInquire div.title span.dueIcon {
+	background: url(images/duetime.png) no-repeat left 8px center;
+}
+
+div.projectInquire div.title span.subcontIcon {
+	background: url(images/subcontIcon.png) no-repeat left 8px center;
+}
+
+div.projectInquire div.title span.selectIcon {
+	background: url(images/selected.png) no-repeat left 8px center;
+}
+
+div.projectInquire div.title span#subConManagement {
+	background: url(images/submanage.png) no-repeat left center;
+	float: right;
+	margin-right: 30px;
+	font-size: 14px;
+	color: #0081ce;
+}
+
+div.projectInquire div.title span#subConManagement:hover {
+	background: url(images/submanage_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectInquire div.title span#subConManagement a:hover {
+	border-bottom: 1px solid #0074ba;
+}
+
+div.projectInquire div#selectTime {
+	line-height: 35px;
+	margin-left: 26px;
+	margin-bottom: 5px;
+	clear: both;
+	padding-left: 30px;
+	position: relative;
+}
+
+div.projectInquire div#selectTime select#timeZone {
+	width: 220px;
+	height: 35px;
+	outline: medium;
+	border: 1px solid #e8ebeb;
+	padding-left: 5px;
+}
+
+div.projectInquire div#selectTime input {
+	width: 290px;
+	height: 33px;
+	outline: medium;
+	border-radius: 3px;
+	border: 1px solid #dadada;
+	margin-right: 10px;
+	text-indent: 10px;
+	padding-right: 30px;
+}
+
+div.projectInquire div#selectTime input#endTime {
+	width: 270px;
+}
+
+div.projectInquire div.table {
+	margin-left: 56px;
+	margin-right: 25px;
+}
+
+div.projectInquire div.table div.tradePopup {
+	top: 37px;
+	left: 500px;
+}
+
+div.projectInquire div.table div.levelPopup {
+	top: 37px;
+	left: 630px;
+}
+div.projectInquire div.table div.levelPopup div.choose{
+	border-bottom:1px dashed #b5b5b5;
+}
+div.projectInquire div.table div.levelPopup div.levelKeyword{
+    color: #0074ba;
+    font-size: 14px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+div.projectInquire div.table div.levelPopup div.okCancel{
+	margin-top:0px;
+}
+div.projectInquire div.table div.levelPopup table.level tr td.dele{
+		background:url(images/leveldelete.png)no-repeat left center;
+}
+div.projectInquire div.table div.levelPopup table.level tr td.addOrDelete:hover{
+	background:url(images/leveldelete_hover.png)no-repeat left center;
+}
+div.projectInquire div#allSubCon {
+	margin-bottom: 5px;
+	position: relative;
+}
+
+div.projectInquire div#allSubCon table tr td input {
+	color: #000;
+}
+
+div.projectInquire div#allSubCon table .td3 {
+	width: 200px;
+	max-width: 200px;
+}
+
+div.projectInquire div#allSubCon table .td4 {
+	width: 200px;
+	max-width: 200px;
+}
+
+div.projectInquire div#allSubCon table .td5 {
+	width: 119px;
+	max-width: 119px;
+}
+
+div.projectInquire div#allSubCon table .td5 span, div.projectInquire div#allSubCon table .td6 span
+	{
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+div.projectInquire div#allSubCon table .td5 span.pop-up, div.projectInquire div#allSubCon table .td6 span.pop-up
+	{
+	width: 10px;
+	height: 10px;
+	background: url(images/open.png) no-repeat center 2px;
+	margin-left: 3px;
+}
+
+div.projectInquire div#allSubCon table .td5 span.tradePopuIcon {
+	width: 20px;
+	height: 20px;
+	background: url(images/evalfilter.png) no-repeat center;
+}
+
+div.projectInquire div#allSubCon table .td6 span.levePopuIcon {
+	width: 20px;
+	height: 20px;
+	background: url(images/evalfilter.png) no-repeat center;
+}
+
+div.projectInquire div#allSubCon table .td6 {
+	width: 62px;
+	max-width: 62px;
+}
+
+div.projectInquire div#allSubCon table .td7 {
+	width: 120px;
+	max-width: 120px;
+}
+
+div.projectInquire div#allSubCon table .td8 {
+	width: 113px;
+	max-width: 113px;
+}
+
+div.projectInquire div#allSubCon table .td9 {
+	
+}
+
+div.sentPorject div.button {
+	padding: 0px 25px 33px;
+}
+
+div.sentPorject table.trade td.box {
+	width: 20px;
+}
+
+div.sentPorject table.trade td.box .chk+label {
+	margin-left: 0px;
+}
+
+div#selectedSubCon {
+	background-color: #fff;
+	padding-bottom: 20px;
+	position: relative;
+}
+
+div#selectedSubCon div.arrowBottom {
+	width: 9px;
+	height: 9px;
+	position: absolute;
+	left: 90px;
+	top: 36px;
+}
+
+div#selectedSubCon div.arrowBottom .arrow1 {
+	position: absolute;
+	left: 12px;
+	top: -1px;
+	height: 0;
+	width: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-top: 7px solid #d3efff;
+}
+
+div#selectedSubCon div.arrowBottom .arrow2 {
+	position: absolute;
+	left: 13px;
+	top: -1px;
+	height: 0;
+	width: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #d3efff;
+}
+
+div#selectedSubCon div.tableHead:first-child {
+	margin-bottom: 10px;
+	box-shadow: 0px 0px 10px 5px #e8ebeb;
+}
+
+div#selectedSubCon div.tableHead, div#selectedSubCon div.autoScroll {
+	margin-left: 56px;
+	margin-right: 25px;
+}
+
+div#selectedSubCon table.tip {
+	margin-bottom: 10px;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-radius: 4px;
+}
+
+div#selectedSubCon tr.tip th {
+	background-color: #d3efff;
+	font-size: 12px;
+}
+
+div#selectedSubCon tr.tip th.box {
+	border-radius: 5px 0px 0px 5px;
+}
+
+div#selectedSubCon tr.tip th.td8 {
+	border-radius: 0px 5px 5px 0px;
+}
+
+div#selectedSubCon table th.sn {
+	width: 30px;
+	max-width: 30px;
+	padding-left: 0px !important;
+}
+
+div#selectedSubCon table span.uploadAttachControl {
+	display: inline-block;
+	width: 0px;
+	height: 0px;
+	cursor: pointer;
+	position: relative;
+	cursor: pointer;
+}
+
+div#selectedSubCon table .sn {
+	width: 30px;
+	max-width: 30px;
+}
+
+div#selectedSubCon table .td3 {
+	white-space: nowrap;
+}
+
+div#selectedSubCon table .td4 {
+	white-space: nowrap;
+}
+
+div#selectedSubCon table .td5 {
+	white-space: nowrap;
+}
+
+div#selectedSubCon table .td6 {
+	width: 150px;
+	max-width: 150px;
+	white-space: nowrap;
+}
+
+div#selectedSubCon table .td7 {
+	width: 90px;
+	max-width: 70px;
+	position: relative;
+}
+
+div#selectedSubCon table .td8 {
+	width: 20px;
+	max-width: 20px;
+}
+
+div#selectedSubCon table span.controlItem {
+	display: inline-block;
+	width: 20px;
+	height: 32px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+div#selectedSubCon table span.attachment {
+	margin-left: 0px;
+}
+
+div#selectedSubCon table span.uploadAttach {
+	background: url(images/uploadAttach.png) no-repeat center;
+}
+
+div#selectedSubCon table span {
+	display: inline-block;
+}
+
+div#selectedSubCon table span.plusAttach {
+	position: absolute;
+	right: 65px;
+	top: 5px;
+	width: 13px;
+	height: 13px;
+	color: #fff;
+	text-align: center;
+	border-radius: 6.5px;
+}
+
+div#selectedSubCon table span.showAttach {
+	background-color: #f00;
+}
+
+div#selectedSubCon table span.uploadAttach:hover {
+	background: url(images/uploadAttach_hover.png) no-repeat center;
+}
+
+div#selectedSubCon table span.deleteItem {
+	float: right;
+	margin-right: 20px;
+	background: url(images/deleteItem.png) no-repeat center;
+}
+
+div#selectedSubCon table span.deleteItem:hover {
+	background: url(images/deleteItem_hover.png) no-repeat center;
+}
+
+div#attachment {
+	background-color: #fff;
+	border: 1px solid #0081cb;
+	margin-left: 57px;
+	padding-bottom: 10px;
+	border-radius: 4px;
+	position: absolute;
+	display: none;
+	z-index: 1000;
+	float: left;
+}
+
+div#attachment span#hideAttachment {
+	margin-top: 5px;
+	margin-right: 5px;
+	float: right;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url(images/hideAttachment.png) no-repeat left center;
+	cursor: pointer;
+}
+
+div#attachment span#hideAttachment:hover {
+	background: url(images/hideAttachment_hover.png) no-repeat left center;
+}
+
+div#attachment div.data {
+	margin-top: 15px;
+}
+
+div#attachment div.arrowBottom {
+	width: 9px;
+	height: 9px;
+	position: absolute;
+	left: 35px;
+	bottom: -10px;
+}
+
+div#attachment div.arrowBottom .arrow1 {
+	position: absolute;
+	left: 5px;
+	top: -1.5px;
+	height: 0;
+	width: 0;
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	border-top: 9px solid #0081ce;
+}
+
+div#attachment div.arrowBottom .arrow2 {
+	position: absolute;
+	left: 6px;
+	top: -2px;
+	height: 0;
+	width: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 8px solid #fff;
+}
+
+div#attachment div.data li {
+	padding-left: 35px;
+	line-height: 20px;
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+div#attachment span.deleteAttachItem {
+	display: inline-block;
+	margin-left: 5px;
+	cursor: pointer;
+	width: 16px;
+	height: 20px;
+	float: right;
+	background: url(images/deleteItem.png) no-repeat center;
+}
+
+div#attachment span.deleteAttachItem:hover {
+	background: url(images/deleteItem_hover.png) no-repeat center;
+}
+
+div#attachment div.attachButton {
+	height: 26px;
+	float: left;
+	margin-left: 70px;
+}
+
+div#attachment div.attachButton span.plus {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	margin-left: 8px;
+	background: url(images/plusAttach.png) no-repeat center;
+}
+
+div#attachment input.addAttach {
+	width: 82px;
+	height: 26px;
+	background-color: #dadada;
+	border-radius: 4px;
+	color: #fff;
+	border: 0px;
+	margin-top: -3px;
+	text-indent: 13px;
+}
+
+div#attachment input.addAttach:hover {
+	background-color: #0081ce;
+}
+/* 工程记录正文样式 */
+div.inquireRecord div.control, div.quoteRecord div.control {
+	height: 46px;
+	background-color: #fff;
+	border-top: 1px solid #dadde0;
+	border-left: 1px solid #dadde0;
+	border-right: 1px solid #dadde0;
+	padding-left: 12px;
+}
+
+div.inquireRecord div.menu span#back, div.quoteRecord div.menu span#back
+	{
+	font-size: 15px;
+	background: url(images/back.png) no-repeat left center;
+}
+
+div.inquireRecord div.menu span#back:hover, div.quoteRecord div.menu span#back:hover
+	{
+	background: url(images/back_hover.png) no-repeat left center;
+}
+
+div.inquireRecord div.menu span#back[class*="active"], div.quoteRecord div.menu span#back[class*="active"]
+	{
+	background: url(images/back_hover.png) no-repeat left center;
+}
+
+div.inquireRecord table, div.quoteRecord table {
+	table-layout: fixed;
+	cursor: default;
+}
+
+div.inquireRecord  table tr:hover td {
+	background-color: #e6f4ff;
+}
+
+div.inquireRecord table .sn {
+	padding-left: 10px;
+	text-align: center;
+}
+
+div.inquireRecord table .td3 {
+	
+}
+
+div.inquireRecord table .td4 {
+	
+}
+
+div.inquireRecord table .td5 {
+	
+}
+
+div.inquireRecord table .td6 {
+    width: 110px;
+    max-width: 110px;
+    padding-right: 30px;
+}
+
+div.inquireRecord table .td7 {
+    width: 125px;
+    max-width: 125px;
+    padding-right: 30px;
+}
+
+div.inquireRecord table .td8 {
+    width: 110px;
+    max-width: 110px;
+    padding-right: 10px;
+}
+
+div.inquireRecord table .td9 {
+    width: 120px;
+    max-width: 120px;
+    padding-right: 30px;
+}
+
+div.inquireRecord table .td10 {
+	width: 110px;
+	max-width: 110px;
+}
+
+div.inquireRecord table th span.mess, div.quoteRecord table th span.mess
+	{
+	display: inline-block;
+	float: left;
+	line-height: 35px;
+}
+
+div.inquireRecord table th span.des, div.quoteRecord table th span.des {
+	display: inline-block;
+	height: 8px;
+	margin-top: 13px;
+	line-height: 35px;
+	width: 13px;
+	background: url(images/descsort.png) no-repeat center;
+}
+
+div.inquireRecord table th span.asc, div.quoteRecord table th span.asc {
+	display: inline-block;
+	height: 8px;
+	margin-top: 12px;
+	line-height: 35px;
+	width: 13px;
+	background: url(images/ascesort.png) no-repeat center;
+}
+
+div.quoteRecord table .sn {
+	padding-left: 10px;
+	text-align: center;
+}
+
+div.quoteRecord table .td3 {
+	
+}
+
+div.quoteRecord table .td4 {
+	
+}
+
+div.quoteRecord  table .td5 {
+	
+}
+
+div.quoteRecord  table .td6 {
+	width: 110px;
+	max-width: 110px;
+}
+
+div.quoteRecord  table .td8 {
+	width: 110px;
+	max-width: 110px;
+}
+
+div.quoteRecord  table .td9 {
+    width: 140px;
+    max-width: 140px;
+}
+
+div.quoteRecord  table .td10 {
+    width: 100px;
+    max-width: 100px;
+}
+
+div.quoteRecord  table .td11 {
+	max-width: 130px;
+	width: 130px;
+}
+/* 供应商正文样式 */
+div.supplierIndex {
+	border: 1px solid #dadde0;
+	border-bottom: 0px;
+	background-color: #fff;
+}
+
+div.supplierIndex table tr.item:hover td {
+	background-color: #e6f4ff;
+}
+
+div.supplierIndex div.top {
+	margin-left: 15px;
+	margin-bottom: 16px;
+	height: 30px;
+	line-height: 30px;
+}
+
+div.supplierIndex div.top span.radius {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: #63c7f1;
+	width: 10px;
+}
+
+div.supplierIndex div.top b {
+	color: #919194;
+	line-height: 15px;
+	display: inline-block;
+	margin-left: 10px;
+}
+
+div.supplierIndex div.top div.menu span#addSupplier {
+	background: url(images/add.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#addSupplier[status="invalid"] {
+	background: url(images/add.png) no-repeat left center !important;
+}
+
+div.supplierIndex div.top div.menu span#addSupplier:hover {
+	background: url(images/add_hover.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#addSupplier[class*="active"] {
+	background: url(images/add_hover.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#editSupplier {
+	background: url(images/edit.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#editSupplier[status="invalid"] {
+	background: url(images/edit.png) no-repeat left center !important;
+}
+
+div.supplierIndex div.top div.menu span#editSupplier:hover {
+	background: url(images/edit_hover.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#editSupplier[class*="active"] {
+	background: url(images/edit_hover.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#deleteSupplier {
+	background: url(images/delete.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#deleteSupplier[status="invalid"]
+	{
+	background: url(images/delete.png) no-repeat left center !important;
+}
+
+div.supplierIndex div.top div.menu span#deleteSupplier:hover {
+	background: url(images/delete_hover.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#deleteSupplier[class*="active"]
+	{
+	background: url(images/delete_hover.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#exportSupplier {
+	background: url(images/export.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#exportSupplier[status="invalid"]
+	{
+	background: url(images/export.png) no-repeat left center !important;
+}
+
+div.supplierIndex div.top div.menu span#exportSupplier:hover {
+	background: url(images/export_hover.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#exportSupplier[class*="active"]
+	{
+	background: url(images/export_hover.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#importSupplier {
+	background: url(images/import.png) no-repeat left center;
+	position: relative;
+}
+
+div.supplierIndex div.top div.menu span#importSupplier[status="invalid"]
+	{
+	background: url(images/import.png) no-repeat left center !important;
+}
+
+div.supplierIndex div.top div.menu span#importSupplier:hover {
+	background: url(images/import_hover.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#importSupplier[class*="active"]
+	{
+	background: url(images/import_hover.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#tradeManagement {
+	background: url(images/tradeManagement.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#tradeManagement[status="invalid"]
+	{
+	background: url(images/tradeManagement.png) no-repeat left center
+		!important;
+}
+
+div.supplierIndex div.top div.menu span#tradeManagement:hover {
+	background: url(images/tradeManagement_hover.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#tradeManagement[class*="active"]
+	{
+	background: url(images/tradeManagement_hover.png) no-repeat left center;
+}
+
+div.supplierIndex div.top div.menu span#importSupplier input {
+	top: 0px;
+	right: 0px;
+	margin: 0px;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	cursor: pointer;
+}
+
+div.supplierIndex div.tableHead, div.supplierIndex div.autoScroll {
+	border-right: 0px;
+	border-left: 0px;
+}
+
+div.supplierIndex table .sn {
+	width: 40px;
+	max-width: 40px;
+	padding-left: 10px;
+}
+
+div.supplierIndex table .td3 {
+	width: 200px;
+	max-width: 200px;
+}
+
+div.supplierIndex table .td4 {
+	width: 200px;
+	max-width: 200px;
+}
+
+div.supplierIndex table .td5 {
+	width: 119px;
+	max-width: 119px;
+}
+
+div.supplierIndex table .td6 {
+	width: 62px;
+	max-width: 62px;
+}
+
+div.supplierIndex table .td7 {
+	width: 100px;
+	max-width: 100px;
+}
+
+div.supplierIndex table .td8 {
+	width: 120px;
+	max-width: 120px;
+}
+
+div.supplierIndex table .td9 {
+	
+}
+
+div.supplierIndex div.button input {
+	width: 160px;
+	background-color: #dedede;
+	color: #999999;
+	background-color: #dedede;
+}
+
+div.supplierIndex div.button input:hover {
+	background-color: #d4d4d4;
+	color: #666666;
+}
+
+div.supplierIndex div.button {
+	padding-right: 10px;
+	padding-top: 30px;
+}
+
+div.tradeList div.tradeList div.popupMenu div.arrowTop .arrow1 {
+	left: 100px;
+}
+
+div.tradeList div.tradeList div.popupMenu div.arrowTop .arrow2 {
+	left: 100px;
+}
+
+div.tradeList div#tradeList {
+	max-height: 250px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	width: 118px;
+	text-align: left;
+}
+
+div.tradeList div.button {
+	padding-bottom: 0px !important;
+}
+
+/* 专业管理正文样式 */
+div#tradeManagementDialog div.cnts {
+	width: 744px;
+	margin-left: -380px;
+}
+
+div#tradeManagementDialog div.cnts table tr.item:hover td {
+	background-color: #e6f4ff;
+}
+
+div#tradeManagementDialog div.cnts div.top {
+	height: 50px;
+	border-bottom: 1px solid #dadde0;
+}
+
+div#tradeManagementDialog div.cnts div.top span {
+	display: inline-block;
+	font-size: 18px;
+	line-height: 50px;
+	margin-left: 15px;
+	color: #333333;
+}
+
+div#tradeManagementDialog div.cnts div.menu {
+	margin-left: 18px;
+}
+
+div#tradeManagementDialog span#addTrade {
+	background: url(images/add.png) no-repeat left center;
+}
+
+div#tradeManagementDialog span#addTrade[status="invalid"] {
+	background: url(images/add.png) no-repeat left center !important;
+}
+
+div#tradeManagementDialog span#addTrade:hover {
+	background: url(images/add_hover.png) no-repeat left center;
+}
+
+div#tradeManagementDialog span#addTrade[class*="active"] {
+	background: url(images/add_hover.png) no-repeat left center;
+}
+
+div#tradeManagementDialog span#editTrade {
+	background: url(images/edit.png) no-repeat left center;
+}
+
+div#tradeManagementDialog span#editTrade[status="invalid"] {
+	background: url(images/edit.png) no-repeat left center !important;
+}
+
+div#tradeManagementDialog span#editTrade:hover {
+	background: url(images/edit_hover.png) no-repeat left center;
+}
+
+div#tradeManagementDialog span#editTrade[class*="active"] {
+	background: url(images/edit_hover.png) no-repeat left center;
+}
+
+div#tradeManagementDialog span#deleteTrade {
+	background: url(images/delete.png) no-repeat left center;
+}
+
+div#tradeManagementDialog span#deleteTrade[status="invalid"] {
+	background: url(images/delete.png) no-repeat left center !important;
+}
+
+div#tradeManagementDialog span#deleteTrade:hover {
+	background: url(images/delete_hover.png) no-repeat left center;
+}
+
+div#tradeManagementDialog span#deleteTrade[class*="active"] {
+	background: url(images/delete_hover.png) no-repeat left center;
+}
+
+div#tradeManagementDialog div.tableHead {
+	margin-left: 15px;
+	margin-right: 20px;
+}
+
+div#tradeManagementDialog div.autoScroll {
+	margin-left: 15px;
+	margin-right: 20px;
+}
+
+div#tradeManagementDialog table .sn {
+	padding-left: 5px;
+}
+
+div#tradeManagementDialog table .td3 {
+	width: 120px;
+	max-width: 120px;
+}
+
+div#tradeManagementDialog table .td4 {
+	
+}
+/* 左侧树型菜单*/
+div#bigMenuContainer {
+	width: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
+}
+
+div#bigMenuContainer span.menuHide {
+	display: inline-block;
+	width: 15px;
+	height: 70px;
+	position: fixed;
+	left: 210px;
+	top: 350px;
+	opacity: 0.7;
+	cursor: pointer;
+	background: url(images/menuhide.png) no-repeat center;
+	cursor: pointer;
+}
+
+div#bigMenuContainer span.menuHide:hover {
+	background: url(images/menuhide_hover.png) no-repeat center;
+}
+
+div#bigMenuContainer span.menuShow {
+	background: url(images/menushow.png) no-repeat center;
+}
+
+div#menu-container div.treeMenu {
+	height: 35px;
+	line-height: 35px;
+	border-bottom: 1px solid #dbdbdb;
+	cursor: pointer;
+	text-align: left;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif, "微软雅黑";
+	color: #8c8a84;
+}
+
+div#menu-container div.selected {
+	background-color: #fff !important;
+	color: #0074ba !important;
+}
+
+div#menu-container .fold {
+	display: none;
+}
+
+div#menu-container div.treeMenu span {
+	width: 140px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	display: inline-block;
+	vertical-align: middle;
+	text-indent: 0px;
+}
+
+div#menu-container div.menu1 span.close {
+	width: 20px;
+	height: 40px;
+	margin-right: 10px;
+	float: right;
+	background: url(images/menuup.png) no-repeat center;
+}
+
+div#menu-container div.menu1 span.up {
+	width: 20px;
+	height: 40px;
+	margin-right: 10px;
+	background-color: #f00;
+	float: right;
+	background: url(images/menuclose.png) no-repeat center;
+}
+
+div#menu-container div.menu2 span.menu2Open {
+	width: 20px;
+	height: 40px;
+	margin-right: 10px;
+	background-color: #f00;
+	float: right;
+	background: url(images/menu2Open.png) no-repeat center;
+}
+
+div#menu-container div.menu2 span.menu2Down {
+	width: 20px;
+	height: 40px;
+	margin-right: 10px;
+	background-color: #f00;
+	float: right;
+	background: url(images/menudown.png) no-repeat center;
+}
+
+div#menu-container div.menu1 {
+	text-indent: 12px;
+	color: #666666;
+}
+
+div#menu-container div.treeMenu:hover {
+	background-color: #fff;
+}
+
+div#menu-container div.menu1 span.icon {
+	width: 20px;
+	height: 40px;
+}
+
+div#menu-container div.menu1 span.open {
+	margin-top: -10px;
+	background: url(images/menu1_open.png) no-repeat left 18px;
+}
+
+div#menu-container div.menu1 span.fold {
+	margin-top: -10px;
+	background: url(images/menu1_close.png) no-repeat left 18px;
+}
+
+div#menu-container div.menu2 {
+	text-indent: 28px;
+}
+
+div#menu-container div.menu2 span.icon {
+	width: 15px;
+	height: 7px;
+}
+
+div#menu-container div.menu2 span.open {
+	margin-top: -3px;
+	background: url(images/menu2_open.png) no-repeat left center;
+}
+
+div#menu-container div.menu2 span.fold {
+	background: url(images/menu2_close.png) no-repeat left center;
+}
+
+div#menu-container div.menu3 {
+	background: url(images/menu3.png) no-repeat 46px center;
+	text-indent: 56px;
+}
+
+/* 报价正文样式 */
+div.projectQuote div.tab {
+	width: 225px;
+	border-right: 1px solid #dadde0;
+	background-color: #e7e7e7;
+}
+
+div.projectQuote div.content {
+	width: 100%;
+	overflow-x: auto;
+	overflow-y: hideen;
+	border-left: 1px solid #dadde0;
+	position: relative;
+	background-color: #fff;
+}
+
+div.projectQuote div.tab_page {
+	padding-top: 5px;
+	vertical-align: top;
+	left: 233px;
+	right: 5px;
+	position: absolute;
+}
+
+div.projectQuote div.control {
+	height: 50px;
+	line-height: 50px;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif, "微软雅黑";
+	color: #666666;
+	border-top: 1px solid #E8E8E8;
+	border-left: 1px solid #E8E8E8;
+	border-right: 1px solid #E8E8E8;
+	padding-left: 16px;
+	text-align: left;
+	background-color: #fff;
+}
+
+div.projectQuote div.quoteAutoScroll {
+	width: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	border-bottom: 1px solid #dadde0;
+	border-right: 1px solid #dadde0;
+	border-left: 1px solid #dadde0;
+	position: relative;
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+
+div.projectQuote div.content::-webkit-scrollbar {
+	width: 10px;
+	height: 8px;
+}
+
+div.projectQuote div.content::-webkit-scrollbar-button {
+	width: 10px;
+	background-color: #505050;
+}
+
+div.projectQuote div.content::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+div.projectQuote div.content::-webkit-scrollbar-track-piece {
+	background: #f1f1f1;
+}
+
+div.projectQuote div.content::-webkit-scrollbar-thumb {
+	background: #a9a9a9;
+	border-radius: 4px;
+}
+
+div.projectQuote div.content::-webkit-scrollbar-corner {
+	background: #82AFFF;
+}
+
+div.projectQuote div.content::-webkit-scrollbar-resizer {
+	background: #FF0BEE;
+}
+
+div.projectQuote div.control span {
+	display: inline-block;
+	margin-right: 20px;
+	cursor: pointer;
+	text-indent: 25px;
+}
+
+div.projectQuote div.control span:hover {
+	color: #0081ce;
+}
+
+div.projectQuote div.control span#downloadProject {
+	text-indent: 0px;
+}
+
+div.projectQuote div.control span.bt1 {
+	background: url(images/project.png) no-repeat left center;
+}
+
+div.projectQuote div.control span.bt2 {
+	background: url(images/seek.png) no-repeat left center;
+}
+
+div.projectQuote div.control span.bt3 {
+	background: url(images/filter.png) no-repeat left center;
+}
+
+div.projectQuote div.control span.bt4 {
+	background: url(images/collapse.png) no-repeat left center;
+}
+
+div.projectQuote div.control span.bt5 {
+	background: url(images/expand.png) no-repeat left center;
+}
+
+div.projectQuote div.control span.bt6 {
+	background: url(images/refresh.png) no-repeat left center;
+}
+
+div.projectQuote div.control span.bt7 {
+	background: url(images/save.png) no-repeat left center;
+}
+
+div.projectQuote div.control span.bt8 {
+	background: url(images/checkout.png) no-repeat left center;
+}
+
+div.projectQuote div.control span.bt9 {
+	background: url(images/checkin.png) no-repeat left center;
+}
+
+div.projectQuote div.control span.bt10 {
+	background: url(images/download.png) no-repeat left center;
+}
+
+div.projectQuote div.control span.bt11 {
+	background: url(images/export.png) no-repeat left center;
+}
+
+div.projectQuote div.control span.bt1:hover {
+	background: url(images/project_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectQuote div.control span.bt2:hover {
+	background: url(images/seek_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectQuote div.control span.bt3:hover {
+	background: url(images/filter_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectQuote div.control span.bt4:hover {
+	background: url(images/collapse_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectQuote div.control span.bt5:hover {
+	background: url(images/expand_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectQuote div.control span.bt6:hover {
+	background: url(images/refresh_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectQuote div.control span.bt7:hover {
+	background: url(images/save_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectQuote div.control span.bt8:hover {
+	background: url(images/checkout_hover.png) no-repeat left center;
+}
+
+div.projectQuote div.control span.bt9:hover {
+	background: url(images/checkin_hover.png) no-repeat left center;
+}
+
+div.projectQuote div.control span.bt10:hover {
+	background: url(images/download_hover.png) no-repeat left center;
+}
+
+div.projectQuote div.control span.bt11:hover {
+	background: url(images/export_hover.png) no-repeat left center;
+}
+
+div.projectQuote div.summary a.submit {
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #0081ce;
+	color: #fff;
+	float: right;
+	text-align: center;
+	margin: 15px 16px;
+	font-size: 16px;
+	border-radius: 4px;
+}
+
+div.projectQuote div.summary a.submit:hover {
+	background-color: #0074ba;
+}
+
+div.projectQuote div#quotePage table.head {
+	border-top: none;
+	border-left: 1px solid #dadada;
+}
+
+div.projectQuote div#quotePage table.head tr {
+	background-color: #e7e7e7;
+}
+
+div.projectQuote div#quotePage table tr:hover {
+	
+}
+
+div.projectQuote div#quotePage div.descriptPopup {
+	left: 46px;
+}
+div.projectQuote div#quotePage div.descriptPopup table.descript tr td{
+	border-bottom:0px !important;
+	border-right:0px !important;
+	padding-left:0px;
+}
+div.projectQuote div#quotePage div.descriptPopup input {
+	margin-left: 0px;
+}
+
+div.projectQuote div#quotePage table td.td3 div {
+	padding-top: 5px;
+	line-height: 22px;
+	display: block;
+	float: left;
+}
+
+div.projectQuote div#quotePage table .sn b {
+	color: #66c9f0;
+}
+
+div.projectQuote div#quotePage table .sn {
+	padding-left: 10px;
+	width: 25px;
+	max-width: 30px;
+	text-align: center;
+}
+
+div.projectQuote div#quotePage table .bold {
+	font-weight: bold;
+}
+
+div.projectQuote div#quotePage table .td3 {
+	width: 380px;
+	max-width: 500px;
+}
+
+div.projectQuote div#quotePage table .td4 {
+	text-align: center;
+	width: 50px;
+	max-width: 50px;
+}
+
+div.projectQuote div#quotePage table .td5 {
+	text-align: center;
+	width: 50px;
+	max-width: 50px;
+}
+
+div.projectQuote div#quotePage table .td6 {
+	text-align: center;
+	width: 55px;
+	max-width: 70px;
+}
+
+div.projectQuote div#quotePage table .td7 {
+	text-align: center;
+	width: 70px;
+	max-width: 50px;
+}
+
+div.projectQuote div#quotePage table .td8 {
+	text-align: center;
+	width: 70px;
+	max-width: 70px;
+}
+
+div.projectQuote div#quotePage table .td9 {
+	text-align: center;
+	width: 90px;
+	max-width: 90px;
+}
+
+div.projectQuote div#quotePage table .td10 {
+	min-width: 100px;
+}
+
+div.projectQuote div#quotePage table.head .td3 span {
+	display: inline-block;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+div.projectQuote div#quotePage table.head .td3 span.quoteFilterIcon {
+	width: 20px;
+	height: 23px;
+	background: url(images/open.png) no-repeat center;
+}
+
+div.projectQuote div#quotePage table.head .td3 span.quoteFilterIcon_succ
+	{
+	width: 25px;
+	height: 23px;
+	background: url(images/evalfilter.png) no-repeat center;
+}
+
+div.projectQuote div#quotePage table th {
+	border-top: 1px solid #dadada;
+	border-bottom: 1px solid #dadada;
+	border-right: 1px solid #dadada;
+	padding-left: 10px;
+}
+
+div.projectQuote div#quotePage table td {
+	border-bottom: 1px solid #d3d3d3;
+	border-right: 1px solid #d3d3d3;
+	padding-left: 10px;
+}
+
+div.projectQuote div#quotePage table td.td3 span {
+	line-height: 32px;
+	height: 100%;
+	display: block;
+	float: left;
+}
+
+div.projectQuote div#quotePage table th:last-child, div.projectQuote div#quotePage table td:last-child
+	{
+	border-right: none;
+}
+
+div.projectQuote div#quotePage div.summary {
+	background-color: #fff;
+	height: 60px;
+	line-height: 60px;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif, "微软雅黑";
+	color: #050927;
+	border-top: 1px solid #d3d3d3;
+	border-bottom: 1px solid #d3d3d3;
+	border-left: 1px solid #d3d3d3;
+	border-right: 1px solid #d3d3d3;
+	left: 0px;
+	right: 0px;
+	position: absolute;
+	text-align: left;
+	padding-left: 12px;
+}
+
+div.projectQuote div#quotePage div.summary b {
+	width: 200px;
+	height: 60px;
+	float: left;
+	font-size: 16px;
+	color: #444444;
+}
+
+div.projectQuote div#quotePage div.summary span.totalNum {
+	font-size: 16px;
+	color: #0081ce;
+	margin-left: 630px;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-indent: 10px;
+}
+/* 评标正文样式 */
+div.tab_page div.doubleTip {
+	width: 400px;
+	height: 35px;
+	position: absolute;
+	left: 550px;
+	top: 5px;
+	border-radius: 4px;
+	z-index: 100;
+	cursor: pointer;
+	background: url(images/tipIcon.png) no-repeat center;
+}
+
+div.tab_page div.doubleTip p {
+	font-size: 12px;
+	color: #63b62f;
+	height: 30px;
+	width: 350px;
+	margin-left: 30px;
+	margin-top: 8px;
+	line-height: 19px;
+	text-align: left;
+}
+
+div.tab_page div.doubleTip span.star {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	left: 11px;
+	top: 11px;
+	background: url(images/star.png) no-repeat center;
+}
+
+div.tab_page div.doubleTip span.dele {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	right: 8px;
+	top: -1px;
+	background: url(images/tip_dele.png) no-repeat center;
+}
+
+div.tab_page div.doubleTip span.dele:hover {
+	background: url(images/tipdele_hover.png) no-repeat center;
+}
+
+div.tab_page span.menuShow {
+	display: inline-block;
+	width: 15px;
+	height: 70px;
+	position: absolute;
+	top: 300px;
+	left: -10px;
+	z-index: 200;
+	background: url(images/menushow.png) no-repeat center;
+	display: none;
+}
+
+div.tab_page span.menuShow:hover {
+	background: url(images/menushow_hover.png) no-repeat center;
+}
+
+div.projectEvaluation div.tab {
+	width: 224px;
+	border-right: 1px solid #dadde0;
+	background-color: #e9e9e9;
+}
+
+div.projectEvaluation div.tab_page {
+	vertical-align: top;
+	left: 230px;
+	right: 10px;
+	position: absolute;
+}
+
+div.projectEvaluation div.control {
+	height: 46px;
+	line-height: 40px;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif, "微软雅黑";
+	color: #666666;
+	border-top: 1px solid #E8E8E8;
+	border-left: 1px solid #E8E8E8;
+	border-right: 1px solid #E8E8E8;
+	padding-left: 16px;
+	text-align: left;
+	background-color: #fff;
+}
+
+div.projectEvaluation div.control span {
+	display: inline-block;
+	margin-right: 20px;
+	cursor: pointer;
+	text-indent: 25px;
+}
+
+div.projectEvaluation div.control span.bt1 {
+	background: url(images/edit.png) no-repeat left center;
+}
+
+div.projectEvaluation div.control span.bt2 {
+	color: #0081ce;
+	background: url(images/submit.png) no-repeat left center;
+}
+
+div.projectEvaluation div.control span.bt3 {
+	background: url(images/filter.png) no-repeat left center;
+}
+
+div.projectEvaluation div.control span.bt4 {
+	background: url(images/show.png) no-repeat left center;
+}
+
+div.projectEvaluation div.control span.bt5 {
+	background: url(images/export.png) no-repeat left center;
+}
+
+div.projectEvaluation div.control span.bt6 {
+	background: url(images/display.png) no-repeat left center;
+}
+
+div.projectEvaluation div.control span.bt7 {
+	background: url(images/double.png) no-repeat left center;
+}
+
+div.projectEvaluation div.control span.bt8 {
+	background: url(images/checkin.png) no-repeat left center;
+}
+
+div.projectEvaluation div.control span.bt1:hover {
+	background: url(images/edit_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectEvaluation div.control span.bt2:hover {
+	background: url(images/submit_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectEvaluation div.control span.bt3:hover {
+	background: url(images/filter_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectEvaluation div.control span.bt4:hover {
+	background: url(images/show_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectEvaluation div.control span.bt5:hover {
+	background: url(images/export_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectEvaluation div.control span.bt6:hover {
+	background: url(images/display_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectEvaluation div.control span.bt7:hover {
+	background: url(images/double_hover.png) no-repeat left center;
+}
+
+div.projectEvaluation div.control span.bt8:hover {
+	background: url(images/checkin_hover.png) no-repeat left center;
+}
+
+div.projectEvaluation div.control span.bt4Active {
+	background: url(images/show_hover.png) no-repeat left center;
+	color: #0074ba;
+}
+
+div.projectEvaluation div.control span.bt7Active {
+	background: url(images/evaledit.png) no-repeat left center;
+}
+
+div.projectEvaluation div.control span.bt7Active:hover {
+	background: url(images/evaledit_hover.png) no-repeat left center;
+}
+
+div.projectEvaluation div.content {
+ 	overflow-x: auto;
+	overflow-y: hidden;
+	border-left: 1px solid #dadde0;
+	position: relative;
+	background-color: #fff;
+}
+
+div.projectEvaluation table {
+	text-align: center;
+	width: 100%;
+	height: auto;
+	border-top: 0px;
+	border-collapse: collapse;
+}
+
+div.projectEvaluation div.choose table td {
+	padding-left: 0px;
+	padding-right: 0px;
+	border-bottom: none;
+	border-right: none;
+	text-align: left;
+}
+
+div.projectEvaluation table tr[isfirsttwo="true"] {
+	background-color: #ecede8;
+}
+
+div.projectEvaluation table tr.standard {
+	border: 0px;
+}
+
+div.projectEvaluation table tr.tr1 td.null {
+	background-color: #f5f5f5;
+}
+
+div.projectEvaluation table tr.standard td {
+	height: 0px;
+	border-top: 0px;
+}
+
+div.projectEvaluation table td {
+	padding-left: 3px;
+	padding-right: 3px;
+	border-bottom: 1px solid #d9dde0;
+	border-right: 1px solid #d9dde0;
+}
+
+div.projectEvaluation table tr b {
+	color: #66c9f0;
+}
+
+div.projectEvaluation table td.pu span.ab {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin-left: 3px;
+	vertical-align: middle;
+}
+
+div.projectEvaluation table td.pu span.a {
+	background: url(images/a.png) no-repeat center;
+}
+
+div.projectEvaluation table td.pu span.b {
+	background: url(images/b.png) no-repeat center;
+}
+
+div.projectEvaluation table td.pu span.c {
+	background: url(images/c.png) no-repeat center;
+}
+
+div.projectEvaluation table td.pu span.abc {
+	width: 50px;
+	background: url(images/abc.png) no-repeat center;
+}
+
+div.projectEvaluation table td.pu span.d {
+	background: url(images/d.png) no-repeat center;
+}
+
+div.projectEvaluation table td.pu span.abd {
+	width: 50px;
+	background: url(images/abd.png) no-repeat center;
+}
+
+div.projectEvaluation table tr td.unpriced span {
+	display: inline-block;
+	width: 51px;
+	height: 26px;
+	float: left;
+	margin-left: -5px;
+}
+
+div.projectEvaluation table tr td span.lowest {
+	display: inline-block;
+	width: 15px;
+	height: 20px;
+	float: left;
+	margin-top: 8px;
+	margin-left: 3px;
+	background: url(images/lowest.png) no-repeat top center;
+}
+
+div.projectEvaluation table tr td.unpriced span.apply {
+	background: url(images/apply.png) no-repeat left center;
+}
+
+div.projectEvaluation table td.green {
+	color: #6cbf85;
+}
+
+div.projectEvaluation table td.pink {
+	color: #f18888;
+}
+
+div.projectEvaluation div.content p {
+	width: 15px;
+	height: 16px;
+	position: fixed;
+	right: 10px;
+	top: 160px;
+	z-index: 100;
+	background: url(images/switch.png) no-repeat center;
+}
+
+div.projectEvaluation div.content p.leftScroll {
+	z-index: 100;
+	background: url(images/leftScroll.png) no-repeat center;
+}
+
+div.projectEvaluation div.content div.popUp input {
+	margin-left: 0px;
+}
+
+div.projectEvaluation div.content div.tradePopup {
+	left: -1px;
+	display: none;
+}
+
+div.projectEvaluation div.content div.descriptPopup {
+	top: 80px;
+	left: 30px;
+}
+
+div.projectEvaluation div.content div.unitPopup {
+	left: -1px;
+	display: none;
+}
+
+div.projectEvaluation table tr[class="item"] {
+	height: 22px;
+}
+
+div.projectEvaluation table td.adopted {
+	background-color: #fff9e3;
+	height: 45px !important;
+}
+
+div.projectEvaluation table td.bw {
+	background-color: #fff;
+}
+
+div.projectEvaluation table tr.bb td {
+	background-color: #0081ce;
+	color: #fff;
+}
+
+div.projectEvaluation table tr.bb td.collection {
+	text-align: left;
+	text-indent: 5px;
+}
+
+div.projectEvaluation table tr.bb td.showTitle input {
+	color: #fff;
+}
+
+div.projectEvaluation table td.td2 {
+	text-align: left;
+}
+
+div.projectEvaluation table td.td2 span {
+	line-height: 32px;
+	height: 100%;
+	display: block;
+	float: left;
+}
+
+div.projectEvaluation table td.td2 div {
+	padding-top: 8px;
+	padding-bottom: 3px;
+	line-height: 13px;
+	display: block;
+	float: left;
+}
+
+div.projectEvaluation table .td1 {
+	width: 25px;
+	max-width: 35px;
+}
+
+div.projectEvaluation table .td2 {
+	width: 380px;
+	max-width: 500px;
+}
+
+div.projectEvaluation table .td3 {
+	position: relative;
+	width: 60px;
+	max-width: 80px;
+}
+
+div.projectEvaluation table .td4 {
+	width: 60px;
+	max-width: 80px;
+}
+
+div.projectEvaluation table .td5 {
+	width: 60px;
+	max-width: 60px;
+	position: relative;
+}
+
+div.projectEvaluation table .td6 {
+	width: 70px;
+	max-width: 60px;
+}
+
+div.projectEvaluation table .td7 {
+	width: 60px;
+	max-width: 31px;
+}
+
+div.projectEvaluation table .net {
+	width: 60px;
+	max-width: 60px;
+}
+
+div.summary a span {
+	display: inline-block;
+	margin-right: 150px;
+	width: 50px;
+	height: 20px;
+	margin-bottom: -6px;
+}
+
+div.projectEvaluation div.summary a span.open {
+	background: url(images/evaldown.png) no-repeat center;
+}
+
+div.projectEvaluation div.summary a span.open:hover {
+	background: url(images/evaldown_hover.png) no-repeat center;
+}
+
+div.projectEvaluation div.summary a span.close {
+	background: url(images/evalup.png) no-repeat center;
+}
+
+div.projectEvaluation div.summary a span.close:hover {
+	background: url(images/evalup_hover.png) no-repeat center;
+}
+
+div.projectEvaluation table tr td span.highest {
+	display: inline-block;
+	width: 10px;
+	height: 20px;
+	margin-top: 5px;
+	background: url(images/highest.png) no-repeat left center;
+}
+
+div.projectEvaluation table tr.trHidden td.rate {
+	line-height: 30px;
+}
+
+div.projectEvaluation table tr td[colspan="5"] span.evaluationInput {
+	display: block;
+	width: 67px;
+	height: 33px;
+	float: left;
+}
+
+div.projectEvaluation table tr td[colspan="5"] span.evaluationInputs {
+	display: block;
+	width: 67px;
+	height: 33px;
+	float: right;
+}
+
+div.projectEvaluation table tr td[colspan="5"] span.numbers {
+	display: block;
+	width: 83px;
+	height: 33px;
+	float: right;
+	margin-right: 80px;
+}
+
+div.projectEvaluation table .s {
+	width: 20px;
+	max-width: 20px;
+}
+
+div.projectEvaluation table .amount1 {
+	width: 70px;
+	max-width: 70px;
+}
+
+div.projectEvaluation table .remark {
+	width: 60px;
+	max-width: 60px;
+}
+
+div.projectEvaluation table .scrollbar {
+	border: none;
+	background-color: #FFF !important;
+}
+
+div.projectEvaluation table tr.tr4 td {
+	line-height: 32px;
+	background-color: #d3d3d3;
+	border-bottom: 0px;
+}
+
+div.projectEvaluation table#dragTable tr.tr4 td span {
+	display: inline-block;
+	cursor: pointer;
+}
+
+div.projectEvaluation table tr.tr4 td.td2 span.des {
+	float: left;
+}
+
+div.projectEvaluation table tr.tr4 td.td2 span.evalFilterIcon {
+	width: 15px;
+	height: 23px;
+	background: url(images/open.png) no-repeat center;
+	margin-top: 4px;
+}
+
+div.projectEvaluation table tr.tr4 td.td2 span.evalFilterIcon_succ {
+	width: 20px;
+	height: 20px;
+	background: url(images/evalfilter.png) no-repeat center;
+	float: right;
+	margin-right: 295px;
+	margin-top: 5px;
+}
+
+div.projectEvaluation table tr.tr4 td.td3 span.tradePopuIcon {
+	width: 10px;
+	height: 8px;
+	margin-left: 2px;
+	background: url(images/open.png) no-repeat center;
+}
+
+div.projectEvaluation table tr.tr4 td.td3 span.tradePopuIcon_succ {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	position: relative;
+	top: 5px;
+	background: url(images/evalfilter.png) no-repeat center;
+}
+
+div.projectEvaluation table tr.tr4 td.td5 span.unitPopuIcon {
+	width: 10px;
+	height: 8px;
+	margin-left: 3px;
+	background: url(images/open.png) no-repeat center;
+}
+
+div.projectEvaluation table tr.tr4 td.td5 span.unitPopuIcon_succ {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	position: relative;
+	top: 5px;
+	background: url(images/evalfilter.png) no-repeat center;
+}
+
+div.projectEvaluation table tr {
+	border-bottom: 0px;
+}
+
+div.projectEvaluation table.head {
+	border-left: none;
+	border-bottom: none;
+	border-right: none;
+	border-top: none;
+	background-color: #fff;
+}
+
+div.projectEvaluation table.head tr.tr1 td, div.projectEvaluation table.head tr.tr2 td
+	{
+	height: 12px;
+}
+
+div.projectEvaluation table.head tr td.white {
+	background-color: #fff;
+	color: #000;
+	border-top: 1px solid #d9dde0;
+}
+
+div.projectEvaluation table.head tr td input {
+	height: 12px;
+}
+/*评标专业弹出框 */
+div.projectEvaluation div.content table#dragTable tr.tr4 td.td3 div.tradePopup div.choose table.trade tr td,
+	div.projectEvaluation div.content table#dragTable tr.tr4 td.td5 div.unitPopup div.choose table.unit tr td
+	{
+	background-color: #fff !important;
+	line-height: 16px;
+}
+
+div.projectEvaluation div.content table#dragTable tr.tr4 td.td3 div.tradePopup div.choose table.trade tr:hover
+	{
+	background-color: #f00 !important;
+}
+
+div.projectEvaluation div.content table#dragTable tr.tr4 td.td3 div.tradePopup div.okCancel,
+	div.projectEvaluation div.content table#dragTable tr.tr4 td.td5 div.unitPopup div.okCancel
+	{
+	height: 26px;
+	border: 0px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+div.projectEvaluation div.content table#dragTable tr.tr4 td.td3 div.tradePopup div.okCancel input,
+	div.projectEvaluation div.content table#dragTable tr.tr4 td.td5 div.unitPopup div.okCancel input
+	{
+	height: 26px;
+}
+
+div.projectEvaluation div.content table#dragTable tr.tr4 td.td3 div.tradePopup div.searchBox div.searchIcon,
+	div.projectEvaluation div.content table#dragTable tr.tr4 td.td5 div.unitPopup div.searchBox div.searchIcon
+	{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	z-index: 100;
+	position: absolute;
+	right: 10px;
+	top: 16px;
+	right: 15px;
+	background: url(images/search.png) no-repeat center;
+	cursor: pointer;
+}
+
+div.projectEvaluation div.autoScroll {
+	border-left: 0px;
+	
+}
+
+div.projectEvaluation div.autoScroll table.tree_table tr td {
+	line-height: 22px;
+}
+
+div.projectEvaluation div.summary {
+	background-color: #fff;
+	bottom: 0px;
+	left: 0px;
+	position: absolute;
+}
+
+div.projectEvaluation div.summary tr:nth-child(2n+1) {
+	background-color: #f7f7f8;
+}
+
+div.projectEvaluation div.summary tr {
+	text-align: center;
+	font-weight: bold;
+	cursor: default;
+}
+
+div.projectEvaluation div.summary tr.trHidden {
+	display: none;
+}
+
+div.projectEvaluation div.summary table.bottom tr.bb {
+	boder-bottom: 3px solid #f00;
+}
+
+div.projectEvaluation div#evalDisplaySettingDialog div.cnts {
+	width: 744px;
+	margin-left: -380px;
+}
+
+div.projectEvaluation div#evalDisplaySettingDialog div.cnts div.top {
+	height: 50px;
+	border-bottom: 1px solid #dadde0;
+}
+
+div.projectEvaluation div#evalDisplaySettingDialog div.cnts div.top span
+	{
+	display: inline-block;
+	font-size: 18px;
+	line-height: 50px;
+	margin-left: 15px;
+	color: #333333;
+}
+
+div#evalDisplaySettingDialog div.tableHead {
+	margin-left: 15px;
+	margin-right: 20px;
+}
+
+div#evalDisplaySettingDialog div.autoScroll {
+	margin-left: 15px;
+	margin-right: 20px;
+	border-left: 1px solid #e5e9ec;
+	border-top: 1px solid #e5e9ec;
+}
+
+div#evalDisplaySettingDialog div.tableHead table.head {
+	background-color: #f3f4f6;
+	border-top: 1px #e5e9ec solid;
+	border-left: 1px solid #e5e9ec;
+	border-right: 1px solid #e5e9ec;
+	margin-top: 15px;
+}
+
+div#evalDisplaySettingDialog div.tableHead table .s {
+	width: 8px;
+}
+
+div#evalDisplaySettingDialog div.tableHead table .td3 {
+	width: 114px;
+	text-align: left;
+}
+
+div#evalDisplaySettingDialog div.tableHead table .td4 {
+	
+}
+
+div#evalDisplaySettingDialog div.autoScroll table td {
+	border-right: 0px;
+	color: #999;
+}
+
+div#evalDisplaySettingDialog div.autoScroll table td.sn {
+	width: 10px;
+	text-align: left;
+	text-indent: 23px;
+}
+
+div#evalDisplaySettingDialog div.autoScroll table .td3, div#evalDisplaySettingDialog div.autoScroll table .td5,
+	div#evalDisplaySettingDialog div.autoScroll table .td6, div#evalDisplaySettingDialog div.autoScroll table .s,
+	div#evalDisplaySettingDialog div.autoScroll table .remark {
+	width: 114px;
+	text-align: left;
+	text-indent: 10px;
+}
+
+div#evalDisplaySettingDialog div.autoScroll table .dis {
+	width: 70px;
+}
+
+div#evalDisplaySettingDialog div.cnts div.button input.ok {
+	background-color: #0084ce;
+	margin-right: -15px;
+	color: #fff;
+	font-weight: bold;
+}
+
+div#evalDisplaySettingDialog div.cnts div.button input.ok:hover {
+	background-color: #0074ba;
+}
+
+/* 登录页面正文样式 */
+div.authLogin {
+	width: 100%;
+	display: table;
+	min-width: 1200px;
+	background-color: #fff;
+}
+
+div.authLogin div.loginLayout {
+	width: 100%;;
+}
+
+div.authLogin .chk+label {
+	border: 1px solid #eeeeef;
+	background-color: #FFF;
+	float: left;
+	margin-left: 3px;
+	margin-top: 1px;
+	width: 2px;
+	height: 2px;
+}
+
+div.authLogin .chk:checked+label:after {
+	color: #0081ce;
+}
+
+div.authLogin div.loginLayout div.middle {
+	width: 100%;
+	height: 504px;
+	position: relative;
+}
+
+div.authLogin div.loginLayout div.middle div.ceng {
+	opacity: 0.35;
+	background-color: #000;
+	position: absolute;
+	border-radius: 4px;
+}
+
+div.authLogin div.loginLayout div.middle div.cengOne {
+	width: 326px;
+	height: 340px;
+	margin-top: 70px;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne {
+	width: 326px;
+	height: 340px;
+	position: absolute;
+	margin-top: 70px;
+	border-radius: 4px;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.out {
+	margin-top: 50px;
+	margin-right: 10px;
+}
+
+div.authLogin div.loginLayout div.middle div.cengTwo {
+	width: 320px;
+	height: 280px;
+	margin-top: 100px;
+}
+
+div.authLogin div.loginLayout div.middle div.loginTwo {
+	width: 320px;
+	height: 280px;
+	position: absolute;
+	margin-top: 100px;
+	border-radius: 4px;
+}
+
+div.authLogin div.loginLayout div.middle div.loginTwo div.good {
+	width: 280px;
+	height: 80px;
+	margin-left: 20px;
+	margin-top: 50px;
+}
+
+div.authLogin div.loginLayout div.middle div.loginTwo span.line {
+	display: inline-block;
+	width: 280px;
+	height: 1px;
+	background-color: #fff;
+	opacity: 0.23;
+	margin-top: 20px;
+}
+
+div.authLogin div.loginLayout div.middle div.loginTwo div.good span.headPortrait
+	{
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+	float: left;
+	background: url(images/userhead.png) no-repeat center;
+}
+
+div.authLogin div.loginLayout div.middle div.loginTwo div.good span {
+	display: inline-block;
+	width: 210px;
+	line-height: 30px;
+	color: #f0f2f5;
+	font-size: 16px;
+	float: right;
+	text-align: left;
+	text-indent: 5px;
+}
+
+div.authLogin div.loginLayout div.middle div.loginTwo div.projectList {
+	width: 280px;
+	line-height: 44px;
+	background-color: #63b62f;
+	margin: 39px auto;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+div.authLogin div.loginLayout div.middle div.loginTwo div.projectList:hover
+	{
+	background-color: #4fa917;
+}
+
+div.authLogin div.loginLayout div.middle div.loginTwo div.projectList span.list
+	{
+	display: inline-block;
+	width: 130px;
+	height: 44px;
+	background: url(images/projectlist.png) no-repeat left;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne span.loginEtender
+	{
+	font-size: 25px;
+	color: #fff;
+	display: inline-blcok;
+	line-height: 74px;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.Name {
+	height: 46px;
+	width: 280px;
+	margin: 0 auto;
+	border-radius: 3px;
+	margin-bottom: 24px;
+	border-radius: 3px;
+	background-color: #fff;
+	border: 1px solid transparent;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.border {
+	border: 1px #0081ba solid;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.Name div.userIcon
+	{
+	background: url(images/usericon.png) no-repeat center;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.Name div.userIcon_hover
+	{
+	background: url(images/usericon__hover.png) no-repeat center;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.Name div.passwordIcon
+	{
+	background: url(images/passwordlock.png) no-repeat center;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.Name div.passwordIcon_hover
+	{
+	background: url(images/passwordlock__hover.png) no-repeat center;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.Name div.icon
+	{
+	display: inline-block;
+	width: 50px;
+	height: 46px;
+	background-color: #f1f2f6;
+	float: left;
+	border-radius: 3px 0px 0px 3px;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.Name input {
+	height: 46px;
+	width: 210px;
+	border-radius: 0px 3px 3px 0px;
+	border: 0px;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.Name span.wrongName
+	{
+	line-height: 20px;
+	color: #fe7070;
+	float: left;
+	display: inline-block;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.Name span.wrongName a
+	{
+	color: #0081ce;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.Name span.wrongName a:hover
+	{
+	color: #0074ba;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.remember {
+	width: 280px;
+	height: 45px;
+	margin: 0 auto;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.remember p.rememberme
+	{
+	width: 120px;
+	line-height: 20px;
+	color: #fff;
+	font-size: 12px;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.remember p.forgot
+	{
+	width: 100px;
+	line-height: 20px;
+	float: right;
+	margin-top: -20px;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.remember p.forgot a
+	{
+	color: #0081ce;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.remember p.forgot a:hover
+	{
+	color: #0074ba;
+}
+
+div.authLogin div.loginLayout div.middle div.loginOne div.remember p.forgot:hover
+	{
+	border-bottom: 1px #0074ba solid;
+}
+
+div.authLogin div.loginLayout div.middle div.swiper-container-horizontal
+	{
+	position: absolute;
+	width: 100%;
+	height: 504px;
+}
+
+div.authLogin div.loginLayout div.swiper-container {
+	width: 300%;
+	height: 504px;
+}
+
+div.authLogin div.loginLayout div.swiper-container div.bannerOne {
+	background: url(images/bannerThree.jpg) no-repeat center;
+}
+
+div.authLogin div.loginLayout div.swiper-container div.bannerTwo {
+	background: url(images/bannerO.jpg) no-repeat center;
+}
+
+div.authLogin div.loginLayout div.swiper-container div.bannerThree {
+	background: url(images/bannerT.jpg) no-repeat center;
+}
+
+div.authLogin div.loginLayout div.swiper-container div.swiper-slide img
+	{
+	width: 1920px;
+	height: 504px;
+}
+
+div.swiper-pagination {
+	width: 10px;
+	height: 30px;
+}
+
+span.swiper-pagination-bullet {
+	width: 10px;
+	height: 10px;
+	line-height: 20px;
+	background-color: #fff;
+	opacity: 0.6
+}
+
+span.swiper-pagination-bullet-active {
+	background-color: #fff;
+	opacity: 1;
+}
+
+div.swiper-container div.swiper-wrapper div.swiper-slide span:hover {
+	background: url(images/videoTwo.png) no-repeat center;
+}
+
+div.swiper-container div.swiper-wrapper div.swiper-slide span.subCon {
+	position: absolute;
+	top: 140px;
+	left: 633px;
+}
+
+div.authLogin div.middle div.loginOne div.signIn input {
+	width: 280px;
+	height: 44px;
+	border: 0px;
+	background-color: #0081ce;
+	border-radius: 3px;
+	color: #fff;
+	font-size: 18px;
+}
+
+div.authLogin div.middle div.loginOne div.signIn input:hover {
+	background-color: #0074ba;
+}
+
+div.authLogin div.middle div.loginOne div.last {
+	width: 294px;
+	height: 50px;
+	margin-left: 20px;
+	margin-top: 8px;
+}
+
+div.authLogin div.middle div.loginOne div.last span {
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	color: #5d5d5d;
+	font-size: 14px;
+}
+
+div.authLogin div.middle div.loginOne div.last span.singUp {
+	width: 65px;
+	float: right;
+	font-size: 14px;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+div.authLogin div.middle div.loginOne div.last span.singUp a {
+	color: #f0f2f5;
+	width: 60px;
+}
+
+div.authLogin div.middle div.loginOne div.last span.singUp a:hover {
+	color: #fff;
+	display: inline-block;
+	border-bottom: 1px solid #fff;
+}
+
+div.mainBottom div.features {
+	height: 250px;
+	margin-top: 50px;
+}
+
+div.authLogin div.features div.feature {
+	float: left;
+	padding: 0px 15px;
+	width: 205px;
+	height: 245px;
+	text-align: center;
+}
+
+div.authLogin div.features span {
+	display: block;
+	color: #333333;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 20px;
+	margin-bottom: 10px;
+}
+
+div.authLogin div.features img {
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+div.authLogin div.features p {
+	font-size: 14px;
+	color: #666666;
+	text-align: center;
+	line-height: 20px;
+	display: inline-block;
+}
+
+div.authLogin div.features div.efficient {
+	padding-left: 0px;
+}
+
+div.authLogin div.features div.efficient p {
+	width: 200px;
+}
+
+div.authLogin div.features p span {
+	display: inline-block;
+	width: 4px;
+	height: 4px;
+	background-color: #000;
+	border-radius: 50%;
+	vertical-align: middle;
+	float: left;
+	margin-top: 8px;
+}
+
+div.authLogin div.features div.accurate p {
+	width: 180px;
+}
+
+div.authLogin div.features div.secure p {
+	width: 170px;
+}
+
+div.authLogin div.features div.easy p {
+	width: 180px;
+}
+
+div.authLogin div.features .environment p {
+	width: 210px;
+}
+
+div.authLogin div.features .environment {
+	margin-left: 20px;
+}
+
+div.authLogin div.more {
+	line-height: 20px;
+	float: right;
+	margin-bottom: 20px;
+}
+
+div.authLogin div.more a span.loading {
+	display: inline-block;
+	height: 22px;
+	padding-left: 26px;
+	background: url(images/plus.png) no-repeat left center;
+}
+
+div.authLogin div.more a span.loading {
+	color: #64c7f0 !important;
+}
+
+div.authLogin div.mainBottom {
+	width: 1180px;
+	height: 582px;
+	margin: 0 auto;
+}
+
+div.authLogin div.mainBottom div.mainCenter {
+	width: 700px;
+	height: 300px;
+	margin: 0 auto;
+	position: relative;
+}
+
+div.authLogin div.mainBottom div.mainCenter span.what {
+	display: inline-block;
+	width: 100%;
+	margin-top: 80px;
+	line-height: 30px;
+	font-size: 24px;
+	font-weight: bold;
+	color: #333333;
+}
+
+div.authLogin div.mainBottom div.mainCenter div.line {
+	width: 90px;
+	height: 3px;
+	background-color: #0074ba;
+	margin: 22px auto 44px
+}
+
+div.authLogin div.mainBottom div.mainCenter p {
+	width: 100%;
+	line-height: 30px;
+	font-size: 18px;
+	color: #666666;
+}
+/* 注册页面正文样式 */
+div.authRegister {
+	width: 100%;
+	display: table;
+	height: 100%;
+	background-color: #eff3ef6;
+}
+
+div.authRegister div.registerBanner {
+	width: 100%;
+	height: 252px;
+	background: url(images/registerbanner.jpg) no-repeat center;
+}
+
+div.authRegister div.content {
+	width: 742px;
+	background-color: #fff;
+	border-radius: 6px;
+	margin: -84px auto 56px;
+}
+
+div.authRegister div.title {
+	border-radius: 6px 6px 0px 0px;
+	line-height: 84px;
+	border-bottom: 1px solid #dadada;
+	font-size: 24px;
+	color: #333333;
+	text-align: left;
+	text-indent: 32px;
+}
+
+div.authRegister div.row-tip {
+	height: 30px;
+	color: #f33333;
+	line-height: 30px;
+	text-align: left;
+	padding-left: 190px;
+}
+
+div.authRegister div#register-tip {
+	float: left;
+	font-size: 14px;
+	line-height: 30px;
+	height: 30px;
+	margin-left: 190px;
+	margin-top: -10px;
+	margin-bottom: 10px;
+	color: #f33333;
+}
+
+div.authRegister div.item {
+	line-height: 36px;
+	width: 100%;
+}
+
+div.authRegister div.startEmail {
+	float: left;
+	font-size: 14px;
+	width: 168px;
+	text-align: right;
+	color: #666666;
+}
+
+div.authRegister div.startEmail span {
+	display: inline-block;
+	text-align: left;
+}
+
+div.authRegister div.startEmail span.placeholder {
+	width: 10px;
+}
+
+div.authRegister div.inputEmail {
+	width: 488px;
+	margin-left: 188px;
+}
+
+div.authRegister div.inputEmail input.border {
+	border: 1px #0074ba solid;
+}
+
+div.authRegister div.inputCode input.border {
+	border: 1px #0074ba solid;
+}
+
+div.authRegister div.inputEmail input {
+	width: 100%;
+	height: 36px;
+	border: 1px solid #dadada;
+	border-radius: 6px;
+	text-indent: 5px;
+}
+
+div.authRegister div.inputCode input {
+	width: 242px;
+	height: 36px;
+	border: 1px solid #dadada;
+	border-radius: 6px;
+	text-indent: 5px;
+	float: left;
+	margin-left: 20px;
+}
+
+div.authRegister div.inputCode div.refresh {
+	width: 85px;
+	height: 35px;
+	float: left;
+	color: #0081ca;
+	font-size: 16px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+div.authRegister div.inputCode div.refresh:hover {
+	color: #0074ba;
+}
+
+div.authRegister div.inputCode div.refresh span.refreshIcon {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+	background: url(images/refresh.png) no-repeat center;
+}
+
+div.authRegister div.inputCode div.refresh span.refreshIcon:hover {
+	background: url(images/refresh_hover.png) no-repeat center;
+}
+
+div.authRegister div#captcha-tip {
+	margin-top: 38px;
+}
+
+div.authRegister div.inputCode img#img_captcha {
+	float: right;
+	width: 150px;
+	height: 36px;
+	margin-right: 61px;
+}
+
+div.authRegister div.agree {
+	text-align: left;
+	line-height: 16px;
+	position: relative;
+	margin-top: 10px;
+	margin-left: 180px;
+	margin-bottom: 18px;
+}
+
+div.authRegister span.agree-tip {
+	font-size: 14px;
+	color: #666666;
+	margin-left: 10px;
+	position: absolute !important;
+	top: 2px !important;
+}
+
+div.authRegister span.agree-tip a {
+	display: inline-block;
+	color: #0081ce !important;
+}
+
+div.authRegister span.agree-tip a:hover {
+	border-bottom: 1px solid #0074ce;
+	color: #0074ce;
+}
+
+div.authRegister div.control {
+	width: 550px;
+	height: 100px;
+}
+
+div.authRegister div.control div.btn {
+	float: right;
+}
+
+div.authRegister div.control input {
+	width: 174px;
+	height: 40px;
+	border: 0px;
+	text-align: center;
+	border-radius: 4px;
+	font-size: 14px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+div.authRegister div.control div.btn input.yes {
+	background-color: #0081ce;
+	color: #fff;
+	margin-right: 10px;
+}
+
+div.authRegister div.control div.btn input.yes:hover {
+	background-color: #0074ba;
+}
+
+div.authRegister div.control div.btn input.no {
+	background-color: #dedede;
+	color: #999999;
+}
+
+div.authRegister div.control div.btn input.no:hover {
+	background-color: #d4d4d4;
+	color: #666666;
+}
+
+/* 错误页面正文样式 */
+div.error {
+	width: 100%;
+	padding-bottom: 140px;
+	background-color: #fff;
+}
+
+div.error-tip {
+	display: table;
+	width: 100%;
+	height: 100%;
+	min-width: 1200px;
+}
+
+div.error-tip div.errorMain {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+div.error-tip div.center {
+	padding-top: 100px;
+	width: 600px;
+	margin: 0 auto;
+}
+
+div.error-tip div.center div.icon {
+	margin-bottom: 20px;
+}
+
+div.error-tip  div.center span.four {
+	width: 300px;
+	line-height: 60px;
+	font-size: 60px;
+	color: #676767;
+}
+
+div.error-tip div.center span.not {
+	margin-top: 20px;
+	display: block;
+	font-size: 18px;
+	color: #676767;
+}
+
+div.error-tip div.center input.input {
+	width: 172px;
+	height: 40px;
+	border: 0px;
+	background-color: #0081ce;
+	margin-top: 30px;
+	border-radius: 6px;
+	color: #fff;
+	font-size: 16px;
+}
+
+div.error-tip div.center input.input:hover {
+	background-color: #0074ba;
+}
+/* 帮助页面正文样式*/
+div.helpIndex {
+	width: 100%;
+	height: 250px;
+	background: url(images/helpbanner.jpg) no-repeat center;
+}
+
+div.helpTop p {
+	text-align: left;
+}
+
+div.helpTop p.titleTip {
+	font-size: 20px;
+	color: #333333;
+	font-weight: bold;
+	width: 1180px;
+	line-height: 52px;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+div.helpTop span.radius {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	vertical-align: top;
+	background: url(images/videohelp.png) no-repeat center;
+}
+
+div.helpTop {
+	width: 1180px;
+	height: 523px;
+	margin: 32px auto 32px;
+	background-color: #fff;
+}
+
+div.helpTop div.flowChart {
+	margin: 44px auto;
+	width: 1180px;
+	height: 385px;
+}
+
+div.helpTop div.flowChart div.left {
+	width: 200px;
+	height: 385px;
+}
+
+div.helpTop div.flowChart div.left span {
+	display: inline-block;
+	width: 200px;
+	height: 190px;
+}
+
+div.helpTop div.flowChart div.left span.main {
+	margin-bottom: 35px;
+	background: url(images/maincon.png) no-repeat center;
+}
+
+div.helpTop div.flowChart div.left span.sub {
+	background: url(images/subcon.png) no-repeat center;
+}
+
+div.helpTop div.flowChart div.right {
+	width: 980px;
+	height: 385px;
+}
+
+div.helpTop div.flowChart div.right div.top {
+	width: 100%;
+	height: 172px;
+}
+
+div.helpTop div.flowChart div.right  div.one {
+	width: 166px;
+	height: 170px;
+	border: 1px solid #e8e8e8;
+	border-radius: 4px;
+	float: left;
+	background: url(images/split.png) no-repeat 30px 30px;
+}
+
+div.helpTop div.flowChart div.right span.split {
+	display: inline-block;
+	width: 166px;
+	line-height: 38px;
+	background-color: #40b3e4;
+	color: #fff;
+	margin-top: 9px;
+	border-radius: 0px 0px 4px 4px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+div.helpTop div.flowChart div.right div.top div.two {
+	background: url(images/send.png) no-repeat 40px 15px;
+}
+
+div.helpTop div.flowChart div.right div.top div.three {
+	background: url(images/evaluate.png) no-repeat 47px 30px;
+	margin-left: 132px;
+}
+
+div.helpTop div.flowChart div.right div.top div.four {
+	background: url(images/submit.png) no-repeat 47px 30px;
+}
+
+div.helpTop div.flowChart div.right div.top div.four span.split {
+	margin-top: 133px;
+}
+
+div.helpTop div.flowChart div.right div.top span.arror {
+	display: inline-block;
+	width: 68px;
+	height: 172px;
+	float: left;
+	background: url(images/arror.png) no-repeat center;
+}
+
+div.helpTop div.flowChart div.right a {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin-top: 90px;
+	background: url(images/play.png) no-repeat center;
+}
+
+div.helpTop div.flowChart div.right div.bottom {
+	width: 464px;
+	height: 223px;
+	margin-left: 238px;
+}
+
+div.helpTop div.flowChart div.right div.bottom span.sem {
+	display: inline-block;
+	width: 100px;
+	height: 150px;
+}
+
+div.helpTop div.flowChart div.right div.bottom span.semOne {
+	float: left;
+	margin-left: 65px;
+	background: url(images/sem_one.png) no-repeat left;
+}
+
+div.helpTop div.flowChart div.right div.bottom div.five {
+	background: url(images/quote.png) no-repeat 55px 20px;
+	margin-top: 48px;
+	margin-left: -23px;
+}
+
+div.helpTop div.flowChart div.right div.bottom span.semTwo {
+	margin-right: 40px;
+	background: url(images/sem_two.png) no-repeat left;
+}
+
+div.helpTop div.flowChart div.right div.one a.turn {
+	background: url(images/play_hover.png) no-repeat center;
+}
+/* 用户页面正文样式*/
+div.userInfo {
+	width: 100%;
+	display: table;
+	background-color: #FCFCFE;
+}
+
+div.userInfo div.userInfoLayout {
+	width: 100%;
+	height: 252px;
+	background: url(images/registerbanner.jpg) no-repeat center;
+}
+
+div.userInfo div.content {
+	width: 743px;
+	height: 543px;
+	background-color: #fff;
+	border-radius: 4px;
+	margin: -85px auto 50px;
+	padding-bottom: 28px;
+}
+
+div.userInfo div.title {
+	border-radius: 4px 4px 0px 0px;
+	line-height: 84px;
+	border-bottom: 1px solid #c6d7e2;
+	font-size: 24px;
+	color: #333333;
+	text-indent: 32px;
+}
+
+div.userInfo div.supply {
+	text-align: left;
+	padding-left: 16px;
+}
+
+div.userInfo div.row-tip {
+	height: 30px;
+	color: #f33333;
+	line-height: 30px;
+	text-align: left;
+	padding-left: 170px;
+	text-indent: 25px;
+}
+
+div.userInfo div.item {
+	line-height: 36px;
+	width: 100%;
+}
+
+div.userInfo div.startEmail {
+	float: left;
+	text-align: right;
+	font-size: 14px;
+	width: 160px;
+	font-size: 14px;
+}
+
+div.userInfo div.startEmail span {
+	display: inline-block;
+	text-align: left;
+}
+
+div.userInfo div.startEmail span.placeholder {
+	width: 10px;
+}
+
+div.userInfo div.inputEmail {
+	width: 488px;
+	margin-left: 188px;
+}
+
+div.userInfo div.inputEmail input {
+	width: 488px;
+	height: 36px;
+	border: 1px solid #d4d4d4;
+	border-radius: 6px;
+	text-indent: 5px;
+}
+
+div.userInfo div.inputEmail input.border {
+	border: 1px #0074ba solid;
+}
+
+div.userInfo div#supply-tip {
+	width: 330px;
+	float: left;
+	line-height: 30px;
+	height: 30px;
+	margin-left: 190px;
+	padding-left: 10px;
+	color: #f33333;
+}
+
+div.userInfo div.control {
+	width: 100%;
+	height: 70px;
+	margin-top: 18px;
+}
+
+div.userInfo div.control div.btn {
+	width: 480px;
+	float: left;
+	margin-top: -25px;
+	margin-left: 125px;
+}
+
+div.userInfo div.control input {
+	width: 84px;
+	height: 30px;
+	border: 0px;
+	text-align: center;
+	border-radius: 6px;
+	font-size: 12px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+div.userInfo div.control div.btn input.yes {
+	background-color: #0081ce;
+	width: 172px;
+	height: 40px;
+	color: #fff;
+	margin-right: 10px;
+	color: #fff;
+}
+
+div.userInfo div.control div.btn input.yes:hover {
+	background-color: #0074ba;
+}
+
+div.userInfo div.control div.btn input.no {
+	width: 172px;
+	height: 40px;
+	background-color: #dedede;
+	color: #999999;
+}
+
+div.userInfo div.control div.btn input.no:hover {
+	background-color: #d4d4d4;
+	color: #666666;
+}
+/*修改个人用户信息正文样式*/
+div.userInfo {
+	width: 100%;
+	display: table;
+	background-color: #f5f5f5;
+}
+
+div.userInfo div.modifyInfoLayout {
+	width: 100%;
+	height: 252px;
+	background: url(images/personbanner.jpg) no-repeat center;
+}
+
+div.userInfo div.modifyContent {
+	width: 742px;
+	margin: -84px auto 20px;
+	height: 100%;
+}
+
+div.userInfo div.modifyContent div.content {
+	width: 742px;
+	height: 100%;
+	background-color: #fff;
+	border-radius: 4px;
+	margin: -84px auto 30px;
+}
+
+div.userInfo div.modifyContent div.content div.hiddenArea {
+	display: none;
+}
+
+div.userInfo div.modifyContent div.modify {
+	text-align: left;
+}
+
+div.userInfo div.modifyContent div.title {
+	border-radius: 4px 4px 0px 0px;
+	line-height: 84px;
+	border-bottom: 1px solid #d4d4d4;
+	font-size: 24px;
+	color: #000;
+}
+
+div.userInfo div.modifyContent div.row-tip {
+	height: 30px;
+	color: #f33333;
+	line-height: 30px;
+	text-align: left;
+	padding-left: 170px;
+	text-indent: 25px;
+}
+
+div.userInfo div.modifyContent div.item {
+	line-height: 36px;
+	width: 100%;
+}
+
+div.userInfo div.modifyContent div.item span.editor {
+	float: right;
+	margin-right: 15px;
+	display: inline-block;
+	width: 15px;
+	height: 36px;
+	background: url(images/edit_hover.png) no-repeat center;
+	cursor: pointer;
+}
+
+div.userInfo div.modifyContent div.content div.startEmail {
+	float: left;
+	font-size: 14px;
+	margin-left: 10px;
+}
+
+div.userInfo div.modifyContent div.content div.startEmail span {
+	display: inline-block;
+	text-align: left;
+}
+
+div.userInfo div.modifyContent div.content div.startEmail span.placeholder
+	{
+	width: 10px;
+}
+
+div.userInfo div.modifyContent div.content div.inputEmail {
+	float: left;
+	width: 360px;
+	margin-left: 20px;
+}
+
+div.userInfo div.modifyContent div.content div item div.companyName {
+	margin-left: 130px;
+}
+
+div.userInfo div.modifyContent div.content div.inputEmail span {
+	display: inline-block;
+	height: 36px;
+	text-indent: 5px;
+	float: left;
+}
+
+div.userInfo div.modifyContent div.content div.twoHidden div.inputEmail span
+	{
+	height: 36px;
+	text-indent: 5px;
+	float: left;
+	display: inline-block;
+}
+
+div.userInfo div.modifyContent div.content div.inputEmail span.modifyPassword
+	{
+	display: inline-block;
+	color: #0081ce;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+div.userInfo div.modifyContent div.content div.inputEmail span.modifyPassword:hover
+	{
+	color: #0074ba;
+}
+
+div.userInfo div.modifyContent div.content div.inputEmail span.modifyPassword a:hover
+	{
+	border-bottom: 1px solid #0074ba;
+}
+
+div.userInfo div.modifyContent div.content div#modify-tip {
+	width: 330px;
+	float: left;
+	margin-left: 190px;
+	margin-bottom: 30px;
+	text-align: left;
+	line-height: 30px;
+	height: 25px;
+	color: #f33333;
+}
+
+div.userInfo div.modifyContent div.content div.control {
+	width: 100%;
+	margin: 0 auto;
+	height: 90px;
+}
+
+div.userInfo div.modifyContent div.content div.control div.btn {
+	width: 500px;
+}
+
+div.userInfo div.modifyContent div.content div.control div.btn {
+	width: 500px;
+}
+
+div.userInfo div.modifyContent div.content div.control input {
+	width: 174px;
+	height: 40px;
+	border: 0px;
+	text-align: center;
+	border-radius: 4px;
+	font-size: 14px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+div.userInfo div.modifyContent div.content div.control div.btn input.yes
+	{
+	background-color: #0081ce;
+	color: #fff;
+	margin-right: 10px;
+}
+
+div.userInfo div.modifyContent div.content div.control div.btn input.yes:hover
+	{
+	background-color: #0074ba;
+}
+
+div.userInfo div.modifyContent div.content div.control div.btn input.no
+	{
+	background-color: #dedede;
+	color: #999999;
+	margin-right: 10px;
+}
+
+div.userInfo div.modifyContent div.content div.control div.btn input.no:hover
+	{
+	background-color: #d4d4d4;
+	color: #666666;
+}
+/*提示激活邮箱页面正文样式 */
+div.tipactive div.content {
+	width: 742px;
+	height: 428px !important;
+	background-color: #fff;
+	border-radius: 6px;
+	margin: -84px auto 56px;
+}
+
+div.tipactive div.content div.tipcenter {
+	height: 428px;
+	width: 480px;
+	margin: 0 auto;
+}
+
+div.tipactive div.content div.tipcenter span.icon {
+	display: inline-block;
+	height: 80px;
+	width: 100%;
+	margin-bottom: 39px;
+	margin-top: 87px;
+	background: url(images/email.png) no-repeat center;
+}
+
+div.tipactive div.content div.tipcenter div.tipcontent {
+	height: 80px;
+}
+
+div.tipactive div.content div.tipcenter div.tipcontent p.p1 {
+	font-size: 18px;
+	margin-bottom: 16px;
+}
+
+div.tipactive div.content div.tipcenter div.tipcontent p.p1 span.username
+	{
+	display: inline-block;
+	height: 18px;
+	line-height: 18px;
+	color: #0074ce;
+}
+
+div.tipactive div.content div.tipcenter div.tipcontent p.p2 {
+	color: #999;
+	font-size: 14px;
+}
+
+div.tipactive div.content div.tipcenter div.button {
+	height: 40px;
+}
+
+div.tipactive div.content div.tipcenter div.button input {
+	height: 40px;
+	color: #fff;
+	background-color: #0081ce;
+	margin-right: 135px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+div.tipactive div.content div.tipcenter div.button input:hover {
+	background-color: #0074ba;
+}

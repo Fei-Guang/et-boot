@@ -1,0 +1,51 @@
+spring:
+    datasource:
+        name: test
+        url: jdbc:mysql://db:3306/etender?zeroDateTimeBehavior=convertToNull
+        username: root
+        password: gld
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+    mvc:
+       view:
+            prefix:  /WEB-INF/jsp/
+            suffix: .jsp
+    # Charset of HTTP requests and responses. Added to the "Content-Type" header if not set explicitly.
+    #http:
+     #   encoding:
+      #      charset: UTF-8
+            # Enable http encoding support.
+       #     enabled: true
+            # Force the encoding to the configured charset on HTTP requests and responses.
+        #    force: true
+        
+        
+mybatis: 
+  mapperLocations: classpath:com/web/mapping/etender/*.xml
+  basePackage: com.web.dao.etender
+  #typeAliasesPackage: tk.mapper.model 
+  #config: mybatis-config.xml
+  
+  
+application:
+            message: Hello Phil
+            
+server:
+      port: 8888
+      contextPath: /
+      error:
+            whitelabel:
+                     enabled: false  

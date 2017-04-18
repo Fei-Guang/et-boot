@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.etender.Quoted_Element4tbqMapper">
+	<resultMap id="BaseResultMap" type="com.web.model.etender.Quoted_Element4tbq">
+		<id column="elementID" property="elementid" jdbcType="INTEGER" />
+		<result column="subProjectID" property="subprojectid" jdbcType="INTEGER" />
+		<result column="tbqElementID" property="tbqelementid" jdbcType="INTEGER" />
+		<result column="tbqPElementID" property="tbqpelementid"
+			jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="TINYINT" />
+		<result column="checkOut" property="checkout" jdbcType="BIT" />
+		<result column="checkOutUserID" property="checkoutuserid"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		elementID, subProjectID, tbqElementID, tbqPElementID, name,
+		type, checkOut,
+		checkOutUserID
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from t_quoted_element4tbq
+		where elementID =
+		#{elementid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		t_quoted_element4tbq
+		where elementID = #{elementid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.web.model.etender.Quoted_Element4tbq">
+		insert into
+		t_quoted_element4tbq (elementID, subProjectID,
+		tbqElementID,
+		tbqPElementID, name, type,
+		checkOut, checkOutUserID)
+		values
+		(#{elementid,jdbcType=INTEGER}, #{subprojectid,jdbcType=INTEGER},
+		#{tbqelementid,jdbcType=INTEGER},
+		#{tbqpelementid,jdbcType=INTEGER},
+		#{name,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT},
+		#{checkout,jdbcType=BIT}, #{checkoutuserid,jdbcType=VARCHAR})
+	</insert>
+	<!-- 使用useGeneratedKeys/KeyProperty来实现插入数据的时候新生成主键的返回。 -->
+	<insert id="insertSelective" useGeneratedKeys="true"
+		keyProperty="elementid" parameterType="com.web.model.etender.Quoted_Element4tbq">
+		insert into t_quoted_element4tbq
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="elementid != null">
+				elementID,
+			</if>
+			<if test="subprojectid != null">
+				subProjectID,
+			</if>
+			<if test="tbqelementid != null">
+				tbqElementID,
+			</if>
+			<if test="tbqpelementid != null">
+				tbqPElementID,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="checkout != null">
+				checkOut,
+			</if>
+			<if test="checkoutuserid != null">
+				checkOutUserID,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="elementid != null">
+				#{elementid,jdbcType=INTEGER},
+			</if>
+			<if test="subprojectid != null">
+				#{subprojectid,jdbcType=INTEGER},
+			</if>
+			<if test="tbqelementid != null">
+				#{tbqelementid,jdbcType=INTEGER},
+			</if>
+			<if test="tbqpelementid != null">
+				#{tbqpelementid,jdbcType=INTEGER},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=TINYINT},
+			</if>
+			<if test="checkout != null">
+				#{checkout,jdbcType=BIT},
+			</if>
+			<if test="checkoutuserid != null">
+				#{checkoutuserid,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.web.model.etender.Quoted_Element4tbq">
+		update t_quoted_element4tbq
+		<set>
+			<if test="subprojectid != null">
+				subProjectID = #{subprojectid,jdbcType=INTEGER},
+			</if>
+			<if test="tbqelementid != null">
+				tbqElementID = #{tbqelementid,jdbcType=INTEGER},
+			</if>
+			<if test="tbqpelementid != null">
+				tbqPElementID = #{tbqpelementid,jdbcType=INTEGER},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null">
+				type = #{type,jdbcType=TINYINT},
+			</if>
+			<if test="checkout != null">
+				checkOut = #{checkout,jdbcType=BIT},
+			</if>
+			<if test="checkoutuserid != null">
+				checkOutUserID = #{checkoutuserid,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where elementID = #{elementid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.web.model.etender.Quoted_Element4tbq">
+		update
+		t_quoted_element4tbq
+		set subProjectID =
+		#{subprojectid,jdbcType=INTEGER},
+		tbqElementID =
+		#{tbqelementid,jdbcType=INTEGER},
+		tbqPElementID =
+		#{tbqpelementid,jdbcType=INTEGER},
+		name = #{name,jdbcType=VARCHAR},
+		type = #{type,jdbcType=TINYINT},
+		checkOut = #{checkout,jdbcType=BIT},
+		checkOutUserID = #{checkoutuserid,jdbcType=VARCHAR}
+		where elementID =
+		#{elementid,jdbcType=INTEGER}
+	</update>
+	<select id="loadTBQElement" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_quoted_element4tbq where subProjectID =
+		#{subprojectid,jdbcType=INTEGER} and type = #{type,jdbcType=TINYINT}
+		order by elementID
+	</select>
+	<select id="loadTBQChildElement" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_quoted_element4tbq where subProjectID =
+		#{subprojectid,jdbcType=INTEGER} and tbqPElementID =
+		#{tbqelementid,jdbcType=INTEGER}
+		order by elementID
+	</select>
+	<select id="loadTBQElementIDs" resultType="java.lang.Integer">
+		select
+		elementID
+		from
+		t_quoted_element4tbq where subProjectID =
+		#{subprojectid,jdbcType=INTEGER} and type = #{type,jdbcType=TINYINT}
+		order by elementID
+	</select>
+	<select id="loadTBQChildElementIDs" resultType="java.lang.Integer">
+		select
+		elementID
+		from t_quoted_element4tbq where subProjectID =
+		#{subprojectid,jdbcType=INTEGER} and tbqPElementID =
+		#{tbqelementid,jdbcType=INTEGER}
+		order by elementID
+	</select>
+</mapper>

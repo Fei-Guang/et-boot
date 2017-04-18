@@ -1,0 +1,6 @@
+png,jpg,jpeg,gif,bmp,
+flv,swf,mkv,avi,rm,rmvb,mpeg,mpg,
+ogg,ogv,mov,wmv,mp4,webm,mp3,wav,mid,
+rar,zip,tar,gz,7z,bz2,cab,iso,
+doc,docx,xls,xlsx,ppt,pptx,pdf,txt,md,xml,dwg,dxf,dwf,rvt,ifc,gfc,tas9,tme2,trb2,tbq2,cadi,CADi,gvd,
+wps,et,dps

@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.etender.Supplier_SubprojectMapper">
+	<resultMap id="BaseResultMap" type="com.web.model.etender.Supplier_Subproject">
+		<id column="supplierSubprojectID" property="suppliersubprojectid"
+			jdbcType="INTEGER" />
+		<result column="subProjectID" property="subprojectid" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="telephone" property="telephone" jdbcType="VARCHAR" />
+		<result column="trade" property="trade" jdbcType="VARCHAR" />
+		<result column="level" property="level" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="contacts" property="contacts" jdbcType="VARCHAR" />
+		<result column="userID" property="userid" jdbcType="VARCHAR" />
+		<result column="attachInfo" property="attachinfo" jdbcType="VARCHAR" />
+		<result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="receivedTime" property="receivedtime" jdbcType="TIMESTAMP" />
+		<result column="firstSaveTime" property="firstsavetime"
+			jdbcType="TIMESTAMP" />
+		<result column="submitTime" property="submittime" jdbcType="TIMESTAMP" />
+		<result column="reviewTime" property="reviewtime" jdbcType="TIMESTAMP" />
+		<result column="logicCounter" property="logiccounter" jdbcType="BIGINT" />
+		<result column="logicDelete" property="logicdelete" jdbcType="BIT" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		supplierSubprojectID, subProjectID, name, email, telephone,
+		trade, level, address,
+		contacts, userID, attachInfo, createTime,
+		receivedTime, firstSaveTime,
+		submitTime,
+		reviewTime, logicCounter,
+		logicDelete
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from t_supplier_subproject
+		where supplierSubprojectID =
+		#{suppliersubprojectid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		t_supplier_subproject
+		where supplierSubprojectID =
+		#{suppliersubprojectid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.web.model.etender.Supplier_Subproject">
+		insert into
+		t_supplier_subproject (supplierSubprojectID, subProjectID,
+		name, email,
+		telephone,
+		trade, level, address,
+		contacts, userID, attachInfo,
+		createTime, receivedTime, firstSaveTime,
+		submitTime, reviewTime,
+		logicCounter,
+		logicDelete)
+		values
+		(#{suppliersubprojectid,jdbcType=INTEGER},
+		#{subprojectid,jdbcType=INTEGER},
+		#{name,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR},
+		#{trade,jdbcType=VARCHAR}, #{level,jdbcType=VARCHAR},
+		#{address,jdbcType=VARCHAR},
+		#{contacts,jdbcType=VARCHAR},
+		#{userid,jdbcType=VARCHAR}, #{attachinfo,jdbcType=VARCHAR},
+		#{createtime,jdbcType=TIMESTAMP}, #{receivedtime,jdbcType=TIMESTAMP},
+		#{firstsavetime,jdbcType=TIMESTAMP},
+		#{submittime,jdbcType=TIMESTAMP},
+		#{reviewtime,jdbcType=TIMESTAMP}, #{logiccounter,jdbcType=BIGINT},
+		#{logicdelete,jdbcType=BIT})
+	</insert>
+	<!-- 使用useGeneratedKeys/KeyProperty来实现插入数据的时候新生成主键的返回。 -->
+	<insert id="insertSelective" useGeneratedKeys="true"
+		keyProperty="suppliersubprojectid" parameterType="com.web.model.etender.Supplier_Subproject">
+		insert into t_supplier_subproject
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="suppliersubprojectid != null">
+				supplierSubprojectID,
+			</if>
+			<if test="subprojectid != null">
+				subProjectID,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="telephone != null">
+				telephone,
+			</if>
+			<if test="trade != null">
+				trade,
+			</if>
+			<if test="level != null">
+				level,
+			</if>
+			<if test="address != null">
+				address,
+			</if>
+			<if test="contacts != null">
+				contacts,
+			</if>
+			<if test="userid != null">
+				userID,
+			</if>
+			<if test="attachinfo != null">
+				attachInfo,
+			</if>
+			<if test="createtime != null">
+				createTime,
+			</if>
+			<if test="receivedtime != null">
+				receivedTime,
+			</if>
+			<if test="firstsavetime != null">
+				firstSaveTime,
+			</if>
+			<if test="submittime != null">
+				submitTime,
+			</if>
+			<if test="reviewtime != null">
+				reviewTime,
+			</if>
+			<if test="logiccounter != null">
+				logicCounter,
+			</if>
+			<if test="logicdelete != null">
+				logicDelete,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="suppliersubprojectid != null">
+				#{suppliersubprojectid,jdbcType=INTEGER},
+			</if>
+			<if test="subprojectid != null">
+				#{subprojectid,jdbcType=INTEGER},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="telephone != null">
+				#{telephone,jdbcType=VARCHAR},
+			</if>
+			<if test="trade != null">
+				#{trade,jdbcType=VARCHAR},
+			</if>
+			<if test="level != null">
+				#{level,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="contacts != null">
+				#{contacts,jdbcType=VARCHAR},
+			</if>
+			<if test="userid != null">
+				#{userid,jdbcType=VARCHAR},
+			</if>
+			<if test="attachinfo != null">
+				#{attachinfo,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="receivedtime != null">
+				#{receivedtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="firstsavetime != null">
+				#{firstsavetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="submittime != null">
+				#{submittime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="reviewtime != null">
+				#{reviewtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="logiccounter != null">
+				#{logiccounter,jdbcType=BIGINT},
+			</if>
+			<if test="logicdelete != null">
+				#{logicdelete,jdbcType=BIT},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.web.model.etender.Supplier_Subproject">
+		update t_supplier_subproject
+		<set>
+			<if test="subprojectid != null">
+				subProjectID = #{subprojectid,jdbcType=INTEGER},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="telephone != null">
+				telephone = #{telephone,jdbcType=VARCHAR},
+			</if>
+			<if test="trade != null">
+				trade = #{trade,jdbcType=VARCHAR},
+			</if>
+			<if test="level != null">
+				level = #{level,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				address = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="contacts != null">
+				contacts = #{contacts,jdbcType=VARCHAR},
+			</if>
+			<if test="userid != null">
+				userID = #{userid,jdbcType=VARCHAR},
+			</if>
+			<if test="attachinfo != null">
+				attachInfo = #{attachinfo,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				createTime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="receivedtime != null">
+				receivedTime = #{receivedtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="firstsavetime != null">
+				firstSaveTime = #{firstsavetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="submittime != null">
+				submitTime = #{submittime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="reviewtime != null">
+				reviewTime = #{reviewtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="logiccounter != null">
+				logicCounter = #{logiccounter,jdbcType=BIGINT},
+			</if>
+			<if test="logicdelete != null">
+				logicDelete = #{logicdelete,jdbcType=BIT},
+			</if>
+		</set>
+		where supplierSubprojectID = #{suppliersubprojectid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.web.model.etender.Supplier_Subproject">
+		update
+		t_supplier_subproject
+		set subProjectID =
+		#{subprojectid,jdbcType=INTEGER},
+		name = #{name,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
+		telephone =
+		#{telephone,jdbcType=VARCHAR},
+		trade = #{trade,jdbcType=VARCHAR},
+		level
+		= #{level,jdbcType=VARCHAR},
+		address = #{address,jdbcType=VARCHAR},
+		contacts = #{contacts,jdbcType=VARCHAR},
+		userID =
+		#{userid,jdbcType=VARCHAR},
+		attachInfo =
+		#{attachinfo,jdbcType=VARCHAR},
+		createTime =
+		#{createtime,jdbcType=TIMESTAMP},
+		receivedTime =
+		#{receivedtime,jdbcType=TIMESTAMP},
+		firstSaveTime =
+		#{firstsavetime,jdbcType=TIMESTAMP},
+		submitTime =
+		#{submittime,jdbcType=TIMESTAMP},
+		reviewTime =
+		#{reviewtime,jdbcType=TIMESTAMP},
+		logicCounter =
+		#{logiccounter,jdbcType=BIGINT},
+		logicDelete =
+		#{logicdelete,jdbcType=BIT}
+		where supplierSubprojectID =
+		#{suppliersubprojectid,jdbcType=INTEGER}
+	</update>
+	<select id="loadSupplierSubProject" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from t_supplier_subproject
+		<where>
+			<if test="_parameter.containsKey('subProjectID')">
+				subProjectID = #{subProjectID}
+			</if>
+			<if test="_parameter.containsKey('email')">
+				and email = #{email}
+			</if>
+			<if test="_parameter.containsKey('subProjectIDs')">
+				and subProjectID in
+				<choose>
+					<when test="subProjectIDs != null and subProjectIDs.size() > 0">
+						<foreach item="item" index="index" collection="subProjectIDs"
+							open="(" separator="," close=")">
+							#{item}
+						</foreach>
+					</when>
+					<otherwise>
+						(-1)
+					</otherwise>
+				</choose>
+			</if>
+			<if test="_parameter.containsKey('logicDelete')">
+				and logicDelete = #{logicDelete}
+			</if>
+		</where>
+		order by
+		supplierSubprojectID desc
+	</select>
+	<select id="loadLastSupplierSubProject" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from t_supplier_subproject
+		<where>
+			<if test="_parameter.containsKey('subProjectID')">
+				subProjectID = #{subProjectID}
+			</if>
+			<if test="_parameter.containsKey('email')">
+				and email = #{email}
+			</if>
+			<if test="_parameter.containsKey('logicDelete')">
+				and logicDelete = #{logicDelete}
+			</if>
+		</where>
+		order by
+		supplierSubprojectID desc limit 0,1
+	</select>
+	<select id="loadSubProjectIDs" resultType="java.lang.Integer">
+		select
+		distinct
+		subProjectID
+		from t_supplier_subproject
+		where
+		email =
+		#{email,jdbcType=VARCHAR}
+		and logicDelete != 1
+		order by
+		supplierSubprojectID desc
+	</select>
+	<select id="loadSupplierEmails" resultType="java.lang.String">
+		select
+		distinct
+		email
+		from t_supplier_subproject
+		where
+		subProjectID =
+		#{subprojectid,jdbcType=INTEGER}
+		and submitTime != '0000-00-00 00:00:00' and submitTime &lt;= #{endtime}
+		and logicDelete != 1
+		order by
+		submitTime
+		asc
+	</select>
+	<select id="loadSendRecordCount" resultType="java.lang.Integer">
+		select count(*) from
+		t_supplier_subproject
+		where
+		subProjectID =
+		#{subprojectid,jdbcType=INTEGER}
+		and logicDelete != 1
+	</select>
+	<select id="loadReviewTimeCount" resultType="java.lang.Integer">
+		select count(*) from
+		t_supplier_subproject
+		where
+		subProjectID =
+		#{subprojectid,jdbcType=INTEGER} and reviewTime != '0000-00-00
+		00:00:00'
+		and logicDelete != 1
+	</select>
+	<update id="deleteSupplierSubProjectByLogic" parameterType="java.util.Map">
+		update
+		t_supplier_subproject
+		set
+		logicDelete = 1
+		<where>
+			<if test="_parameter.containsKey('email')">
+				and email = #{email}
+			</if>
+			<if test="_parameter.containsKey('subProjectIDs')">
+				and subProjectID in
+				<choose>
+					<when test="subProjectIDs != null and subProjectIDs.size() > 0">
+						<foreach item="item" index="index" collection="subProjectIDs"
+							open="(" separator="," close=")">
+							#{item}
+						</foreach>
+					</when>
+					<otherwise>
+						(-1)
+					</otherwise>
+				</choose>
+			</if>
+		</where>
+	</update>
+	<update id="updateSupplierReceivedTime" parameterType="java.util.Map">
+		update
+		t_supplier_subproject
+		set
+		receivedTime = now()
+		<where>
+			receivedTime = '0000-00-00 00:00:00' and logicDelete != 1
+			<if test="_parameter.containsKey('email')">
+				and email = #{email}
+			</if>
+			<if test="_parameter.containsKey('subProjectIDs')">
+				and subProjectID in
+				<choose>
+					<when test="subProjectIDs != null and subProjectIDs.size() > 0">
+						<foreach item="item" index="index" collection="subProjectIDs"
+							open="(" separator="," close=")">
+							#{item}
+						</foreach>
+					</when>
+					<otherwise>
+						(-1)
+					</otherwise>
+				</choose>
+			</if>
+		</where>
+	</update>
+	<update id="updateMainConReviewTime" parameterType="java.util.List">
+		update
+		t_supplier_subproject
+		set
+		reviewTime = now()
+		where reviewTime =
+		'0000-00-00 00:00:00' and logicDelete != 1
+		and subProjectID in
+		<choose>
+			<when test="list != null and list.size() > 0">
+				<foreach item="item" index="index" collection="list" open="("
+					separator="," close=")">
+					#{item}
+				</foreach>
+			</when>
+			<otherwise>
+				(-1)
+			</otherwise>
+		</choose>
+	</update>
+	<update id="updateSupplierSubmitTime">
+		update
+		t_supplier_subproject
+		set
+		submitTime = now()
+		where submitTime =
+		'0000-00-00 00:00:00'
+		and email =
+		#{email,jdbcType=VARCHAR}
+		and subProjectID =
+		#{subprojectid,jdbcType=INTEGER}
+		and logicDelete != 1
+	</update>
+	<update id="updateSupplierFirstSaveTime">
+		update
+		t_supplier_subproject
+		set
+		firstSaveTime = now()
+		where firstSaveTime =
+		'0000-00-00 00:00:00'
+		and email =
+		#{email,jdbcType=VARCHAR}
+		and subProjectID =
+		#{subprojectid,jdbcType=INTEGER}
+		and logicDelete != 1
+	</update>
+</mapper>

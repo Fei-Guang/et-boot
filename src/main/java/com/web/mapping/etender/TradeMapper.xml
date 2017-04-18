@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.etender.TradeMapper">
+	<resultMap id="BaseResultMap" type="com.web.model.etender.Trade">
+		<id column="tradeID" property="tradeid" jdbcType="INTEGER" />
+		<result column="code" property="code" jdbcType="VARCHAR" />
+		<result column="description" property="description" jdbcType="VARCHAR" />
+		<result column="userID" property="userid" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		tradeID, code, description, userID
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from t_trade
+		where tradeID = #{tradeid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		t_trade
+		where tradeID = #{tradeid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.web.model.etender.Trade">
+		insert into t_trade (tradeID,
+		code, description,
+		userID)
+		values (#{tradeid,jdbcType=INTEGER},
+		#{code,jdbcType=VARCHAR},
+		#{description,jdbcType=VARCHAR},
+		#{userid,jdbcType=VARCHAR})
+	</insert>
+	<!-- 使用useGeneratedKeys/KeyProperty来实现插入数据的时候新生成主键的返回。 -->
+	<insert id="insertSelective" useGeneratedKeys="true"
+		keyProperty="tradeid" parameterType="com.web.model.etender.Trade">
+		insert into t_trade
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="tradeid != null">
+				tradeID,
+			</if>
+			<if test="code != null">
+				code,
+			</if>
+			<if test="description != null">
+				description,
+			</if>
+			<if test="userid != null">
+				userID,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="tradeid != null">
+				#{tradeid,jdbcType=INTEGER},
+			</if>
+			<if test="code != null">
+				#{code,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				#{description,jdbcType=VARCHAR},
+			</if>
+			<if test="userid != null">
+				#{userid,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.web.model.etender.Trade">
+		update t_trade
+		<set>
+			<if test="code != null">
+				code = #{code,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				description = #{description,jdbcType=VARCHAR},
+			</if>
+			<if test="userid != null">
+				userID = #{userid,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where tradeID = #{tradeid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.web.model.etender.Trade">
+		update t_trade
+		set
+		code = #{code,jdbcType=VARCHAR},
+		description =
+		#{description,jdbcType=VARCHAR},
+		userID = #{userid,jdbcType=VARCHAR}
+		where tradeID = #{tradeid,jdbcType=INTEGER}
+	</update>
+	<select id="loadTrade" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_trade where userID =
+		#{userid,jdbcType=VARCHAR}
+	</select>
+	<select id="getTradeCount4User" resultType="java.lang.Integer">
+		select count(*)
+		from
+		t_trade where userID =
+		#{userid,jdbcType=VARCHAR}
+	</select>
+	<delete id="batchDeleteTrade" parameterType="java.util.List">
+		delete from t_trade
+		where tradeID in
+		<choose>
+			<when test="list != null and list.size() > 0">
+				<foreach item="item" index="index" collection="list" open="("
+					separator="," close=")">
+					#{item}
+				</foreach>
+			</when>
+			<otherwise>
+				(-1)
+			</otherwise>
+		</choose>
+	</delete>
+	<select id="selectCodeByUserID" resultType="java.lang.String">
+		select code
+		from
+		t_trade where userID =
+		#{userid,jdbcType=VARCHAR} and tradeID !=
+		#{tradeid,jdbcType=INTEGER}
+	</select>
+</mapper>

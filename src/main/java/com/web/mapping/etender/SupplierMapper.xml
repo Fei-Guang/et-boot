@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.dao.etender.SupplierMapper">
+	<resultMap id="BaseResultMap" type="com.web.model.etender.Supplier">
+		<id column="supplierID" property="supplierid" jdbcType="INTEGER" />
+		<result column="userID" property="userid" jdbcType="VARCHAR" />
+		<result column="glodonUserID" property="glodonuserid" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="telephone" property="telephone" jdbcType="VARCHAR" />
+		<result column="trade" property="trade" jdbcType="VARCHAR" />
+		<result column="level" property="level" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="contacts" property="contacts" jdbcType="VARCHAR" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="createBy" property="createby" jdbcType="VARCHAR" />
+		<result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="updateBy" property="updateby" jdbcType="VARCHAR" />
+		<result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+		<result column="logicCounter" property="logiccounter" jdbcType="BIGINT" />
+		<result column="logicDelete" property="logicdelete" jdbcType="BIT" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		supplierID, userID, glodonUserID, name, email, telephone,
+		trade, level, address,
+		contacts, remark, createBy, createTime,
+		updateBy, updateTime,
+		logicCounter, logicDelete
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from t_supplier
+		where supplierID = #{supplierid,jdbcType=INTEGER}
+	</select>
+	<select id="selectSubcontractByEmail" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_supplier
+		where email = #{email,jdbcType=VARCHAR}
+		and userID=#{userid,jdbcType=VARCHAR}
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		t_supplier
+		where supplierID = #{supplierid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.web.model.etender.Supplier">
+		insert into t_supplier
+		(supplierID, userID, glodonUserID,
+		name, email, telephone,
+		trade, level,
+		address,
+		contacts, remark, createBy,
+		createTime, updateBy, updateTime,
+		logicCounter, logicDelete)
+		values (#{supplierid,jdbcType=INTEGER},
+		#{userid,jdbcType=VARCHAR},
+		#{glodonuserid,jdbcType=VARCHAR},
+		#{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
+		#{telephone,jdbcType=VARCHAR},
+		#{trade,jdbcType=VARCHAR},
+		#{level,jdbcType=VARCHAR},
+		#{address,jdbcType=VARCHAR},
+		#{contacts,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR},
+		#{createby,jdbcType=VARCHAR},
+		#{createtime,jdbcType=TIMESTAMP},
+		#{updateby,jdbcType=VARCHAR},
+		#{updatetime,jdbcType=TIMESTAMP},
+		#{logiccounter,jdbcType=BIGINT}, #{logicdelete,jdbcType=BIT})
+	</insert>
+	<!-- 使用useGeneratedKeys/KeyProperty来实现插入数据的时候新生成主键的返回。 -->
+	<insert id="insertSelective" useGeneratedKeys="true"
+		keyProperty="supplierid" parameterType="com.web.model.etender.Supplier">
+		insert into t_supplier
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="supplierid != null">
+				supplierID,
+			</if>
+			<if test="userid != null">
+				userID,
+			</if>
+			<if test="glodonuserid != null">
+				glodonUserID,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="telephone != null">
+				telephone,
+			</if>
+			<if test="trade != null">
+				trade,
+			</if>
+			<if test="level != null">
+				level,
+			</if>
+			<if test="address != null">
+				address,
+			</if>
+			<if test="contacts != null">
+				contacts,
+			</if>
+			<if test="remark != null">
+				remark,
+			</if>
+			<if test="createby != null">
+				createBy,
+			</if>
+			<if test="createtime != null">
+				createTime,
+			</if>
+			<if test="updateby != null">
+				updateBy,
+			</if>
+			<if test="updatetime != null">
+				updateTime,
+			</if>
+			<if test="logiccounter != null">
+				logicCounter,
+			</if>
+			<if test="logicdelete != null">
+				logicDelete,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="supplierid != null">
+				#{supplierid,jdbcType=INTEGER},
+			</if>
+			<if test="userid != null">
+				#{userid,jdbcType=VARCHAR},
+			</if>
+			<if test="glodonuserid != null">
+				#{glodonuserid,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="telephone != null">
+				#{telephone,jdbcType=VARCHAR},
+			</if>
+			<if test="trade != null">
+				#{trade,jdbcType=VARCHAR},
+			</if>
+			<if test="level != null">
+				#{level,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="contacts != null">
+				#{contacts,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="createby != null">
+				#{createby,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateby != null">
+				#{updateby,jdbcType=VARCHAR},
+			</if>
+			<if test="updatetime != null">
+				#{updatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="logiccounter != null">
+				#{logiccounter,jdbcType=BIGINT},
+			</if>
+			<if test="logicdelete != null">
+				#{logicdelete,jdbcType=BIT},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.web.model.etender.Supplier">
+		update t_supplier
+		<set>
+			<if test="userid != null">
+				userID = #{userid,jdbcType=VARCHAR},
+			</if>
+			<if test="glodonuserid != null">
+				glodonUserID = #{glodonuserid,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="telephone != null">
+				telephone = #{telephone,jdbcType=VARCHAR},
+			</if>
+			<if test="trade != null">
+				trade = #{trade,jdbcType=VARCHAR},
+			</if>
+			<if test="level != null">
+				level = #{level,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				address = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="contacts != null">
+				contacts = #{contacts,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				remark = #{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="createby != null">
+				createBy = #{createby,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				createTime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateby != null">
+				updateBy = #{updateby,jdbcType=VARCHAR},
+			</if>
+			<if test="updatetime != null">
+				updateTime = #{updatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="logiccounter != null">
+				logicCounter = #{logiccounter,jdbcType=BIGINT},
+			</if>
+			<if test="logicdelete != null">
+				logicDelete = #{logicdelete,jdbcType=BIT},
+			</if>
+		</set>
+		where supplierID = #{supplierid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.web.model.etender.Supplier">
+		update t_supplier
+		set userID = #{userid,jdbcType=VARCHAR},
+		glodonUserID =
+		#{glodonuserid,jdbcType=VARCHAR},
+		name = #{name,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
+		telephone =
+		#{telephone,jdbcType=VARCHAR},
+		trade = #{trade,jdbcType=VARCHAR},
+		level
+		= #{level,jdbcType=VARCHAR},
+		address = #{address,jdbcType=VARCHAR},
+		contacts = #{contacts,jdbcType=VARCHAR},
+		remark =
+		#{remark,jdbcType=VARCHAR},
+		createBy = #{createby,jdbcType=VARCHAR},
+		createTime = #{createtime,jdbcType=TIMESTAMP},
+		updateBy =
+		#{updateby,jdbcType=VARCHAR},
+		updateTime =
+		#{updatetime,jdbcType=TIMESTAMP},
+		logicCounter =
+		#{logiccounter,jdbcType=BIGINT},
+		logicDelete =
+		#{logicdelete,jdbcType=BIT}
+		where supplierID =
+		#{supplierid,jdbcType=INTEGER}
+	</update>
+	<select id="loadSupplier" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_supplier where userID =
+		#{userid,jdbcType=VARCHAR} and
+		logicDelete !=1
+	</select>
+	<update id="deleteSupplierByLogic" parameterType="java.lang.Integer">
+		update
+		t_supplier
+		set
+		logicDelete = 1
+		where supplierID =
+		#{supplierid,jdbcType=INTEGER}
+	</update>
+	<update id="batchDeleteSupplierByLogic" parameterType="java.util.List">
+		update
+		t_supplier
+		set
+		logicDelete = 1
+		where supplierID in
+		<choose>
+			<when test="list != null and list.size() > 0">
+				<foreach item="item" index="index" collection="list" open="("
+					separator="," close=")">
+					#{item}
+				</foreach>
+			</when>
+			<otherwise>
+				(-1)
+			</otherwise>
+		</choose>
+	</update>
+	<select id="selectNameByUserID" resultType="java.lang.String">
+		select name
+		from
+		t_supplier where userID =
+		#{userid,jdbcType=VARCHAR} and supplierID !=
+		#{supplierid,jdbcType=INTEGER} and
+		logicDelete !=1
+	</select>
+	<select id="selectEmailByUserID" resultType="java.lang.String">
+		select email
+		from
+		t_supplier where userID =
+		#{userid,jdbcType=VARCHAR} and supplierID !=
+		#{supplierid,jdbcType=INTEGER} and
+		logicDelete !=1
+	</select>
+</mapper>
